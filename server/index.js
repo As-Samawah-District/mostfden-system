@@ -25,7 +25,7 @@ const conect = async () => {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  console.log('database is connected');
+  console.log(`database is connected URI::::${db_url}`);
 };
 
 conect();
