@@ -298,6 +298,7 @@ const getMostafidForms = async (req, res) => {
   let page = req.query.page;
   let start = page ? (page - 1) * 30 : 0;
   let end = page * 30;
+  await Form.deleteMany({fullName:null})
   try {
     let sz = await Form.aggregate([
       {
