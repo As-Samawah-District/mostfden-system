@@ -36,6 +36,7 @@ const logRouter = require("./routes/logRoute");
 const classRouter = require("./routes/classRoute");
 const backRouter = require("./routes/backupRoute");
 const archiveRouter = require("./routes/archiveRoute");
+const { createAdmin } = require("./controllers/authController");
 
 // hostnamectl set-hostname smwback
 app.use("/form", formRouter);
@@ -44,6 +45,9 @@ app.use("/logs", logRouter);
 app.use("/class", classRouter);
 app.use("/backup", backRouter);
 app.use("/archive", archiveRouter);
+
+// createAdmin
+createAdmin();
 
 app.listen(process.env.PORT, () => {
   console.log(`server is running on port ${process.env.PORT}`);

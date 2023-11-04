@@ -265,5 +265,5 @@ module.exports = {
   getLogo,
   getUser,
   deleteUser,
-
+  createAdmin
 };
