@@ -1,0 +1,123 @@
+.LOcontainer {
+  background-color: #ffffff;
+  width: 92%;
+  margin-left: 2%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 0px 11px 2px;
+  margin-top: 50px;
+  overflow: scroll;
+}
+.LOcontainer h2 {
+  margin: auto;
+  width: fit-content;
+  text-align: center;
+  background-color: black;
+  border-radius: 30px;
+  color: white;
+  padding: 10px 23px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.flexx {
+  width: 90%;
+  margin: auto;
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.flexx1 {
+  width: 35%;
+  padding: 20px;
+  background: linear-gradient(
+    0deg,
+    #ffcbcb 0%,
+    #ffcbcb1a 50%,
+    rgba(254, 254, 254, 1) 100%
+  );
+  border-radius: 5px;
+  margin-right: 20px;
+  text-align: center;
+}
+.flexx img {
+  width: 150px;
+  max-height: 150px;
+}
+.Form input[type="file"]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+  display: flex;
+  justify-content: space-around;
+  transition: background 0.2s ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: black;
+}
+.Form input {
+  padding: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  width: 36rem;
+  border-radius: 10px;
+  border: 1px solid #aaaaaa;
+  text-align: center;
+}
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+.Form h3 {
+  float: right !important;
+  font-weight: 600;
+  font-size: 21px;
+  font-family: "Cairo";
+}
+.Form label {
+  float: right;
+  font-weight: 400;
+  font-size: 21px;
+  font-family: "Cairo";
+}
+.Form button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 19px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.Form button:hover {
+  transition: all 0.5s;
+  background-color: blue;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #0000;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 15%;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

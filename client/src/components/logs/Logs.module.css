@@ -1,0 +1,153 @@
+.LContainer {
+  background-color: #ffffff;
+  width: 92%;
+  margin-left: 2%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 0px 11px 2px;
+  margin-top: 50px;
+}
+
+.LContainer h2 {
+  margin: auto;
+  width: fit-content;
+  text-align: center;
+  background-color: black;
+  border-radius: 30px;
+  color: white;
+  padding: 10px 23px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.Form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.Form button {
+  background-color: black;
+  color: white;
+  width: 5rem;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 10px;
+  height: 3rem;
+  margin-top: 1.4%;
+}
+.Form button:hover {
+  background-color: brown;
+  transition: all 0.5s;
+  border: none;
+}
+.Form input {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  width: 10rem;
+  border-radius: 10px;
+  border: 1px solid #aaaaaa;
+  text-align: right;
+}
+
+.Form select {
+  font-size: 18px;
+  font-weight: 500;
+  width: 10rem;
+  border-radius: 10px;
+  border: 1px solid #aaaaaa;
+  text-align: right;
+  height: 3rem;
+  margin-top: 1.2rem;
+}
+
+.girdTable {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 10% 10% 20% 25% 12% 20%;
+  text-align: center;
+  background-color: #7fc0e6;
+  padding: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 11px 2px;
+}
+.girdItem {
+  font-size: 18px;
+  text-align: center;
+  font-family: "Cairo";
+  font-weight: 800;
+  padding-top: 6px;
+}
+.girdTable2 {
+  width: 92%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 10% 10% 20% 25% 12% 20%;
+  text-align: center;
+  padding: 10px;
+}
+.girdItem2 {
+  font-size: 18px;
+  text-align: center;
+  font-family: "Cairo";
+  font-weight: 700;
+  padding-top: 10px;
+  border: 1px solid #aaaaaa;
+
+  overflow: hidden;
+}
+
+.type{
+    padding: 3px;
+    margin-left: 10%; 
+    margin-bottom: 3%; 
+    overflow: hidden;
+    width: 80%;
+    background-color: #aaecff;
+    border-radius: 10px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #00000f;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 15%;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination button {
+  color: white;
+  background-color: #00000f;
+  float: left;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+}
+
+
+.pagination button:hover:not(.active) {
+  background-color: #ddd;
+}

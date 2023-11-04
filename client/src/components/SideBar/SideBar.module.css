@@ -1,0 +1,45 @@
+.Scontainer {
+  background-color: #353a40;
+  height: 95vh;
+  width: 250px;
+  right: 0;
+  margin-top: 1%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transition: 450ms;
+  z-index: 50;
+  position: fixed;  
+}
+.setting {
+  width: 96%;
+  display: flex;
+  justify-content: flex-end;
+}
+.section {
+  flex-direction: row;
+  width: 96%;
+  overflow: hidden;
+  text-align: end;
+  float: right !important;
+}
+.dropdown .section{
+    background-color: #474b52 !important;
+    transition: 450ms ;
+    width: 100%;
+}
+
+.dropdown .section:hover{
+    background-color: #808080 !important; 
+}
+.section:hover , .setting:hover{
+    background-color: #808080;
+    width: 100%;
+    cursor: pointer;
+}
+
+@media screen and (max-width:650px) {
+  .Scontainer{
+    height: fit-content;
+  }
+  
+}

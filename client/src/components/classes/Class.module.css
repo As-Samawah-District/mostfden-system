@@ -1,0 +1,109 @@
+.Ccontainer {
+  background-color: #ffffff;
+  width: 92%;
+  margin-left: 2%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 0px 11px 2px;
+  margin-top: 50px;
+}
+.Ccontainer h2 {
+  margin: auto;
+  width: fit-content;
+  text-align: center;
+  background-color: black;
+  border-radius: 30px;
+  color: white;
+  padding: 10px 23px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.btn {
+  width: 85%;
+  margin: auto;
+  border: 1px solid rgb(128, 128, 128);
+  padding: 15px 30px;
+}
+.btn form button {
+  background-color: black;
+  color: white;
+  width: 15rem;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 10px;
+}
+.btn form input {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  width: 28rem;
+  border-radius: 10px;
+  border: 1px solid #aaaaaa;
+  text-align: right;
+}
+.btn form {
+  display: flex;
+  justify-content: space-around;
+}
+.btn form button:hover{
+  transition: all .5s;
+  background-color: brown;
+
+}
+.girdTable {
+  width: 88%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  background-color: #7fc0e6;
+  padding: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 11px 2px;
+}
+.girdItem {
+  font-size: 18px;
+  text-align: center;
+  font-family: "Cairo";
+  font-weight: 800;
+  padding-top: 6px;
+}
+.girdTable2 {
+  width: 88.3%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  padding: 10px;
+}
+.girdItem2 {
+  font-size: 18px;
+  text-align: center;
+  font-family: "Cairo";
+  font-weight: 700;
+  padding-top: 10px;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 15%;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
