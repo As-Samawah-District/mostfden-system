@@ -4,6 +4,9 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const cron = require("node-cron");
+const morgan = require("morgan");
+
+app.use(morgan("dev"));
 
 app.use(
   cors({
@@ -14,9 +17,14 @@ app.use(
   })
 );
 
+const db_url = process.env.DB_URI;
+
 app.use(express.json());
 const conect = async () => {
-  await mongoose.connect("mongodb://0.0.0.0:27017/smv");
+  await mongoose.connect(db_url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
   console.log('database is connected');
 };
 

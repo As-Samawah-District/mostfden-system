@@ -7,7 +7,7 @@ const User = require("../models/userModel");
 const Logo = require("../models/logoModel");
 const Form = require('../models/formModel')
 const signIn = async (req, res) => {
- // console.log(req.body);
+  // console.log(req.body);
   if (!req.body.name) return res.status(400).json("name is required");
   if (!req.body.password) return res.status(400).json("Password is required");
 
@@ -24,15 +24,15 @@ const signIn = async (req, res) => {
       const token = jwt.sign(user2.toJSON(), "HS256", {
         expiresIn: "24h",
       });
-  //    console.log('from3 ', user)
-    if(!user.hidden)
-      await Log.create({
-        type: "تسجيل دخول",
-        user: user.name,
-        details: "",
-        system: os.platform(),
-        ip: IP.address(),
-      });
+      //    console.log('from3 ', user)
+      if (!user.hidden)
+        await Log.create({
+          type: "تسجيل دخول",
+          user: user.name,
+          details: "",
+          system: os.platform(),
+          ip: IP.address(),
+        });
       res.status(200).json({ token: token });
     });
   } catch (err) {
@@ -55,7 +55,7 @@ const signUp = async (req, res) => {
     }
     bcrypt.hash(password, 10).then(async (hashed) => {
       try {
-   //     console.log(hashed, password)
+        //     console.log(hashed, password)
         let user = await User.create({
           name,
           password: hashed,
@@ -63,11 +63,11 @@ const signUp = async (req, res) => {
           phone,
           admin,
           image,
-          hidden:false,
-          role:String(req.body.role).split(',') 
+          hidden: false,
+          role: String(req.body.role).split(',')
         });
         console.log('from ', req.user)
-        if(!req.user.hidden){
+        if (!req.user.hidden) {
           await Log.create({
             type: "اضافه موظف",
             user: user.userName,
@@ -76,7 +76,7 @@ const signUp = async (req, res) => {
             ip: IP.address(),
           });
         }
-        
+
       } catch (err) {
         return res.status(400).json(err.message);
       }
@@ -89,8 +89,36 @@ const signUp = async (req, res) => {
   }
 };
 
+// create admin user if not exist
+const createAdmin = async () => {
+  try {
+    let user = await User.find({ name: "admin" });
+    if (user.length > 0) {
+      return;
+    }
+    bcrypt.hash("Qw123456@@", 10).then(async (hashed) => {
+      try {
+        await User.create({
+          name: "admin",
+          password: hashed,
+          fullName: "admin",
+          phone: "123456",
+          admin: true,
+          image: "admin.png",
+          role: ["admin", "setting"],
+        });
+        console.log("admin created");
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 const editProfile = async (req, res) => {
-//  console.log(req.body);
+  //  console.log(req.body);
   try {
     if (req.params.id != req.user._id && !req.user.admin)
       return res.status(400).json("you are not authorized");
@@ -104,14 +132,14 @@ const editProfile = async (req, res) => {
         }
       }
       let hashed = user.password;
-    //  console.log(req.body.role);
-      if(req.body.role) console.log(req.body.role);
+      //  console.log(req.body.role);
+      if (req.body.role) console.log(req.body.role);
       let image = req.file ? req.file.filename : user.image;
       if (req.body.password)
         bcrypt.hash(req.body.password, 10).then((result) => {
           hashed = result;
         });
-    //    console.log("yyyyyyyyyy");
+      //    console.log("yyyyyyyyyy");
       user = await User.findByIdAndUpdate(req.params.id, {
         name: req.body.name || user.name,
         password: hashed,
@@ -119,14 +147,14 @@ const editProfile = async (req, res) => {
         phone: req.body.phone || user.phone,
         admin: req.body.admin || user.admin,
         image: image,
-        role:  String(req.body.role).split(',')  ,
-        jobTittle:req.body.jobTittle || user.jobTittle,
+        role: String(req.body.role).split(','),
+        jobTittle: req.body.jobTittle || user.jobTittle,
       });
       user = await User.findById(req.params.id);
       const token = jwt.sign(user.toJSON(), "HS256", {
         expiresIn: "24h",
       });
-      if(!req.user.hidden){
+      if (!req.user.hidden) {
         await Log.create({
           type: "تعديل بيانات",
           user: user.name,
@@ -157,9 +185,9 @@ const getAll = async (req, res) => {
 const changeSign = async (req, res) => {
   //console.log(req.user);
   //console.log( req.file);
- // if (!req.user.admin || !req.file)
+  // if (!req.user.admin || !req.file)
   //  return res.status(400).json("you are not authorized");
-   // console.log( 'xxxxx' );
+  // console.log( 'xxxxx' );
   try {
     console.log(req.file);
     await Logo.deleteMany({});
@@ -208,9 +236,9 @@ const getLogo = async (req, res) => {
 const deleteUser = async (req, res) => {
   // console.log(req.user);
   if (!req.user.admin && !req.user.role.includes("setting"))
-   return res.status(400).json("not authorized");
+    return res.status(400).json("not authorized");
   try {
-     await User.findByIdAndDelete(req.params.id)
+    await User.findByIdAndDelete(req.params.id)
     return res.status(200).json('deleted')
   } catch (error) {
     return res.status(400).json(error)
@@ -224,7 +252,7 @@ const deleteUser = async (req, res) => {
 //     else return res.status(200).json(1)
 //   } catch (error) {
 //     return res.status(400).json(error)
-    
+
 //   }
 // }
 module.exports = {
@@ -237,5 +265,5 @@ module.exports = {
   getLogo,
   getUser,
   deleteUser,
-  
+
 };
