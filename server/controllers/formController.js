@@ -540,9 +540,9 @@ const editPrintNumber = async (req, res) => {
   if (!req.body.id || !req.body.number)
     return res.status(400).json("id is not valid");
   try {
-    await Print.findOneAndUpdate(
+    await Print.updateMany(
       { number: req.body.number },
-      { number: req.body.number + 1 }
+      { $inc: { number: 1 } }
     );
     let data = await Form.findByIdAndUpdate(req.body.id, {
       number: req.body.number,
