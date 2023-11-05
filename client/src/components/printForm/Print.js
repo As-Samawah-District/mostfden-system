@@ -156,7 +156,8 @@ export const Print = (props) => {
               <div> {`التاريخ / ${date}`}</div>
             </div>
             <div>
-              <img src="1698956106609-image-525acf9e29b89e9cdea769d5d8c0ef1b8720823e.png"></img>
+              {/* public/1698956106609-image-525acf9e29b89e9cdea769d5d8c0ef1b8720823e.png */}
+            <img src="../../1698956106609-image-525acf9e29b89e9cdea769d5d8c0ef1b8720823e.png" alt="logo" />
             </div>
             <div className={style.topW}>
               <div> مديرية بلدية السماوة</div>
