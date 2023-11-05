@@ -1,11 +1,12 @@
 import React from "react";
 import style from "../modal/Modal.module.css";
 import Cookies from "js-cookie";
+import { server_url } from "../../config";
 export const DeleteModal = (props) => {
   const handelSubmit = async (e) => {
     let token = Cookies.get("auth");
     let res = await fetch(
-      `http://localhost:8000/form/delete/${props.id}`,
+      `${server_url}/form/delete/${props.id}`,
       {
         method: "DELETE",
         headers: {

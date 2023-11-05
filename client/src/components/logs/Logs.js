@@ -4,6 +4,7 @@ import { useReactToPrint } from "react-to-print";
 import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import { Nav } from "../Nav/Nav";
+import { server_url } from "../../config";
 export const Logs = () => {
   const [all, setAll] = useState(null);
   const [data, setData] = useState(null);
@@ -23,7 +24,7 @@ export const Logs = () => {
     if (!token) window.location.replace("/");
     if (!jwtDecode(token).admin) window.location.replace("/forms");
     const get = async () => {
-      let res = await fetch("http://localhost:8000/logs", {
+      let res = await fetch(`${server_url}/logs`, {
         method: "POST",
         headers: {
           Authorization: `token ${token}`,
@@ -47,7 +48,7 @@ export const Logs = () => {
         });
         setData(tmp);
       }
-      res = await fetch("http://localhost:8000/auth/all", {
+      res = await fetch(`${server_url}/auth/all`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

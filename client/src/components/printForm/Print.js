@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
+import { server_url } from "../../config";
 
 export const Print = (props) => {
   const componentRef = useRef();
@@ -41,7 +42,7 @@ export const Print = (props) => {
       });
     } else {
       let get = async () => {
-        let res = await fetch(`http://localhost:8000/form/${id}`, {
+        let res = await fetch(`${server_url}/form/${id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -67,8 +68,7 @@ export const Print = (props) => {
   const handelClick = async (e) => {
     e.preventDefault();
     let token = Cookies.get("auth");
-    let res = await axios.post(
-      "http://localhost:8000/form/create",
+    let res = await axios.post(`${server_url}/form/create`,
       {
         fullName: props.fullName,
         husbandName: props.husbandName,
@@ -98,7 +98,7 @@ export const Print = (props) => {
     }
   };
   const handelPrintNumber = async () => {
-    let res = await fetch(`http://localhost:8000/form/editPrint`, {
+    let res = await fetch(`${server_url}/form/editPrint`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

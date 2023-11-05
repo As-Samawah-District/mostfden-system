@@ -3,6 +3,7 @@ import style from "./Login.module.css";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenNib } from "@fortawesome/free-solid-svg-icons";
+import { server_url } from "../../config";
 
 const Login = () => {
   useEffect(() => {
@@ -15,8 +16,8 @@ const Login = () => {
   const handelSubmit = async (e) => {
     e.preventDefault();
     setErro(null);
-    //http://localhost:8000
-    let res = await fetch("http://localhost:8000/auth/signin", {
+    //`${server_url}
+    let res = await fetch(`${server_url}/auth/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

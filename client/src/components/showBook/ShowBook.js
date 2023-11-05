@@ -5,6 +5,7 @@ import QRCode from "react-qr-code";
 import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import { useParams } from "react-router-dom";
+import { server_url } from "../../config";
 
 export const ShowBook = () => {
   const componentRef = useRef();
@@ -32,7 +33,7 @@ export const ShowBook = () => {
     //   window.location.replace("/");
     // setUser(jwtDecode(token).fullName);
     let get = async () => {
-      let res = await fetch(`http://localhost:8000/form/${id}`, {
+      let res = await fetch(`${server_url}/form/${id}`, {
         method: "GET",
         // headers: {
         //   Authorization: `token ${token}`,

@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { SideBar } from "../SideBar/SideBar";
 import { Nav } from "../Nav/Nav";
 import jwtDecode from "jwt-decode";
+import { server_url } from "../../config";
 
 export default function ShowArch() {
   const componentRef = useRef();
@@ -25,8 +26,7 @@ export default function ShowArch() {
     )
       window.location.replace("/");
     const getData = async () => {
-      let res = await fetch(`
-http://localhost:8000/archive/get/?id=${id}`, {
+      let res = await fetch(`${server_url}/archive/get/?id=${id}`, {
         headers: {
           Authorization: `token ${token}`,
         },
@@ -40,8 +40,7 @@ http://localhost:8000/archive/get/?id=${id}`, {
   }, []);
   const handelDelete = async () => {
     if (!data || !data._id) return;
-    let res = await fetch(`
-http://localhost:8000/archive/?id=${data._id}`, {
+    let res = await fetch(`${server_url}/archive/?id=${data._id}`, {
       method: "DELETE",
       headers: {
         Authorization: `token ${token}`,

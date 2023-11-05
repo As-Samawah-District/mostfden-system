@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import { useParams } from "react-router-dom";
 import { Nav } from "../Nav/Nav";
+import { server_url } from "../../config";
 
 export const Profile = () => {
   let { id } = useParams();
@@ -100,7 +101,7 @@ export const Profile = () => {
       window.location.replace("/");
 
     const get = async () => {
-      let res = await fetch(`http://localhost:8000/auth/${id}`, {
+      let res = await fetch(`${server_url}/auth/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -160,7 +161,7 @@ export const Profile = () => {
     setRole([...new Set(tmp)]);
     formdata.append("role", role);
     try {
-      let res = await fetch(`http://localhost:8000/auth/edit/${id}`, {
+      let res = await fetch(`${server_url}/auth/edit/${id}`, {
         method: "POST",
         headers: {
           authorization: `token ${token}`,

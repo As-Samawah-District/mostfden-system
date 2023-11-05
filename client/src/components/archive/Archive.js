@@ -4,6 +4,7 @@ import style from "./archive.module.css";
 import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import { Nav } from "../Nav/Nav";
+import { server_url } from "../../config";
 
 export default function Archive() {
   const [data, setData] = useState({});
@@ -16,7 +17,7 @@ export default function Archive() {
     setUser(jwtDecode(token));
     const getData = async () => {
       
-      let res = await fetch("http://localhost:8000/archive/getAll", {
+      let res = await fetch(`${server_url}/archive/getAll`, {
         headers: {
           Authorization: `token ${token}`,
         },
@@ -35,7 +36,7 @@ export default function Archive() {
     }
 
     let token = Cookies.get("auth");
-    let res = await fetch("http://localhost:8000/archive/add", {
+    let res = await fetch(`${server_url}/archive/add`, {
       method: "POST",
       headers: {
         Authorization: `token ${token}`,
@@ -49,7 +50,7 @@ export default function Archive() {
     e.preventDefault();
     console.log(search);
     let token = Cookies.get("auth");
-    let res = await fetch("http://localhost:8000/archive/search", {
+    let res = await fetch(`${server_url}/archive/search`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

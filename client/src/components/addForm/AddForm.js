@@ -5,6 +5,7 @@ import jwtDecode from "jwt-decode";
 import { Nav } from "../Nav/Nav";
 import axios from "axios";
 import { Context } from "../../App";
+import { server_url } from "../../config";
 export const AddForm = (props) => {
   // console.log(props);
   const [data, setData] = useState({});
@@ -21,7 +22,7 @@ export const AddForm = (props) => {
     if (!jwtDecode(token).admin && !jwtDecode(token).role.includes("add"))
       window.location.replace("/");
     let get = async () => {
-      let res = await fetch("http://localhost:8000/class/", {
+      let res = await fetch(`${server_url}/class/`, {
         method: "GET",
         headers: {
           Authorization: `token ${token}`,
@@ -73,7 +74,7 @@ export const AddForm = (props) => {
     formdata.append("formNumber", num + 1);
     let token = Cookies.get("auth");
     let res = await axios.post(
-      "http://localhost:8000/form/create",
+      `${server_url}/form/create`,
       formdata,
       {
         headers: {

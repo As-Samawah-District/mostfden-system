@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
 import { Nav } from "../Nav/Nav";
+import { server_url } from "../../config";
 export const EditForm = () => {
   let { id } = useParams();
   //let id = "6473cc4181abf05ca86eca2a";
@@ -20,7 +21,7 @@ export const EditForm = () => {
     if (!jwtDecode(token).admin && !jwtDecode(token).role.includes("edit"))
       window.location.replace("/");
     let get = async () => {
-      let res = await fetch(`http://localhost:8000/form/${id}`, {
+      let res = await fetch(`${server_url}/form/${id}`, {
         method: "GET",
         headers: {
           Authorization: `token ${token}`,
@@ -33,7 +34,7 @@ export const EditForm = () => {
         // console.log(res);
       }
 
-      res = await fetch("http://localhost:8000/class/", {
+      res = await fetch(`${server_url}/class/`, {
         method: "GET",
         headers: {
           Authorization: `token ${token}`,
@@ -64,7 +65,7 @@ export const EditForm = () => {
       formdata.append(key, value);
     }
     let token = Cookies.get("auth");
-    let res = await fetch(`http://localhost:8000/form/edit/${id}`, {
+    let res = await fetch(`${server_url}/form/edit/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

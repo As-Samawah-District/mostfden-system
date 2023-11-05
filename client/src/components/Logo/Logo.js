@@ -3,6 +3,7 @@ import style from "./Logo.module.css";
 import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import { Nav } from "../Nav/Nav";
+import { server_url } from "../../config";
 export const Logo = () => {
   const [logo, setLogo] = useState(null);
   const [file, setFile] = useState(null);
@@ -13,8 +14,7 @@ export const Logo = () => {
     if (!jwtDecode(token).admin && !jwtDecode(token).role.includes("setting"))
       window.location.replace("/");
     const get = async () => {
-      let res = await fetch(
-        "http://localhost:8000/auth/logo",
+      let res = await fetch(`${server_url}/auth/logo`,
         {
           method: "GET",
           headers: {
@@ -28,7 +28,7 @@ export const Logo = () => {
         console.log(res);
         setLogo(res);
       }
-      // res = await fetch("http://localhost:8000/form/numbers", {
+      // res = await fetch(`${server_url}/form/numbers`, {
       //   method: "GET",
       //   headers: {
       //     'Content-Type':'application/json',
@@ -47,8 +47,7 @@ export const Logo = () => {
     const formdata = new FormData();
     formdata.append("file", file);
     let token = Cookies.get("auth");
-    let res = await fetch(
-      "http://localhost:8000/auth/logo",
+    let res = await fetch(`${server_url}/auth/logo`,
       {
         method: "POST",
         headers: {

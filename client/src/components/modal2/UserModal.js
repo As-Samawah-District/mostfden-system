@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./UserModal.module.css";
 import Cookies from "js-cookie";
+import { server_url } from "../../config";
 
 export const UserModal = (props) => {
   const [Dbclr, setDBclr] = useState("#ffffff");
@@ -93,7 +94,7 @@ export const UserModal = (props) => {
     formdata.append("role", role);
     let token = Cookies.get("auth");
     try {
-      let res = await fetch("http://localhost:8000/auth/signup", {
+      let res = await fetch(`${server_url}/auth/signup`, {
         method: "POST",
         body: formdata,
         headers: {

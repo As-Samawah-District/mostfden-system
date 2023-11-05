@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { server_url } from "../../config";
 
 export const ArchiveData = () => {
   const [dis, setDis] = useState(false);
@@ -7,7 +8,7 @@ export const ArchiveData = () => {
   const downloadCSV = (e) => {
     setDis(true);
     e.preventDefault();
-    fetch("http://localhost:8000/archive", {
+    fetch(`${server_url}/archive`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -3,6 +3,7 @@ import style from "./Users.module.css";
 import { UserModal } from "../modal2/UserModal";
 import Cookies from "js-cookie";
 import { Nav } from "../Nav/Nav";
+import { server_url } from "../../config";
 
 export const Users = () => {
   const [clk, setClk] = useState(false);
@@ -11,7 +12,7 @@ export const Users = () => {
     let token = Cookies.get("auth");
     if (!token) window.location.replace("/");
     const getAll = async () => {
-      let res = await fetch("http://localhost:8000/auth/all", {
+      let res = await fetch(`${server_url}/auth/all`, {
         method: "GET",
       });
       if (res.status == 200) {

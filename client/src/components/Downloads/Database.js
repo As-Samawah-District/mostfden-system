@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { server_url } from "../../config";
 
 export const Database = () => {
   const [dis, setDis] = useState(false);
@@ -8,7 +9,7 @@ export const Database = () => {
     setDis(true);
     e.preventDefault();
     // http://localhost:3000/smv-database
-    fetch("http://localhost:8000/form/database", {
+    fetch(`${server_url}/form/database`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -7,6 +7,7 @@ import { Print } from "../printForm/Print";
 import { DeleteModal } from "../deleteModal/DeleteModal";
 import axios from "axios";
 import { Modal } from "./Modal";
+import { server_url } from "../../config";
 export const List2 = (props) => {
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
@@ -40,7 +41,7 @@ export const List2 = (props) => {
 
     const get = async () => {
       axios
-        .get("http://localhost:8000/form/mshmostafid/?page=1", {
+        .get(`${server_url}/form/mshmostafid/?page=1`, {
           headers: {
             Authorization: `token ${token}`,
           },
@@ -71,7 +72,7 @@ export const List2 = (props) => {
     if (checkUser) {
       if (Object.keys(search).length === 0) {
         axios
-          .get(`http://localhost:8000/form/mshmostafid/?page=1`,
+          .get(`${server_url}/form/mshmostafid/?page=1`,
             {
               headers: {
                 Authorization: `token ${token}`,
@@ -88,7 +89,7 @@ export const List2 = (props) => {
           });
       } else {
         axios
-          .post("http://localhost:8000/form/front/?page=1", {
+          .post(`${server_url}/form/front/?page=1`, {
             search,
           })
           .then((res) => {
@@ -107,7 +108,7 @@ export const List2 = (props) => {
     if (checkUser) {
       if (Object.keys(search).length === 0) {
         axios
-          .get(`http://localhost:8000/form/mshmostafid/?page=${currentPage + 1}`,
+          .get(`${server_url}/form/mshmostafid/?page=${currentPage + 1}`,
             {
               headers: {
                 Authorization: `token ${token}`,
@@ -122,7 +123,7 @@ export const List2 = (props) => {
           });
       } else {
         axios
-          .post(`http://localhost:8000/form/front/?page=${currentPage + 1}`,
+          .post(`${server_url}/form/front/?page=${currentPage + 1}`,
             {
               search,
             }
@@ -141,7 +142,7 @@ export const List2 = (props) => {
     if (checkUser) {
       if (Object.keys(search).length === 0) {
         axios
-          .get(`http://localhost:8000/form/mshmostafid/?page=${currentPage - 1}`,
+          .get(`${server_url}/form/mshmostafid/?page=${currentPage - 1}`,
             {
               headers: {
                 Authorization: `token ${token}`,
@@ -156,7 +157,7 @@ export const List2 = (props) => {
           });
       } else {
         axios
-          .post(`http://localhost:8000/form/front/?page=${currentPage - 1}`,
+          .post(`${server_url}/form/front/?page=${currentPage - 1}`,
             {
               search,
             }

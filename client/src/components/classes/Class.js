@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import { Nav } from "../Nav/Nav";
+import { server_url } from "../../config";
 const Class = () => {
   const [data, setData] = useState(null);
   const [data2, setData2] = useState(null);
@@ -15,7 +16,7 @@ const Class = () => {
     if (!jwtDecode(token).admin && !jwtDecode(token).role.includes("setting"))
       window.location.replace("/");
     const get = async () => {
-      let res = await fetch("http://localhost:8000/class/", {
+      let res = await fetch(`${server_url}/class/`, {
         method: "GET",
         headers: {
           Authorization: `token ${token}`,
@@ -41,7 +42,7 @@ const Class = () => {
   const handelDelete = async (id) => {
     let token = Cookies.get("auth");
     // console.log(id);
-    let res = await fetch(`http://localhost:8000/class/${id}`, {
+    let res = await fetch(`${server_url}/class/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +60,7 @@ const Class = () => {
     // console.log(Name);
     let token = Cookies.get("auth");
     //  console.log(token);
-    let res = await fetch("http://localhost:8000/class/", {
+    let res = await fetch(`${server_url}/class/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +82,7 @@ const Class = () => {
     // console.log(Name);
     let token = Cookies.get("auth");
     // console.log(token);
-    let res = await fetch("http://localhost:8000/class/", {
+    let res = await fetch(`${server_url}/class/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

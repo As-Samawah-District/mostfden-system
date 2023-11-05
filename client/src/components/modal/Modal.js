@@ -1,11 +1,12 @@
 import React from "react";
 import style from "./Modal.module.css";
 import Cookies from "js-cookie";
+import { server_url } from "../../config";
 export const Modal = (props) => {
   const handelSubmit = async(e)=>{
     e.preventDefault();
     let token = Cookies.get("auth");
-    let res = await fetch(`http://localhost:8000/auth/${props.id}`, {
+    let res = await fetch(`${server_url}/auth/${props.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

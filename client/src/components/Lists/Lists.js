@@ -6,6 +6,7 @@ import jwtDecode from "jwt-decode";
 import { Print } from "../printForm/Print";
 import { DeleteModal } from "../deleteModal/DeleteModal";
 import axios from "axios";
+import { server_url } from "../../config";
 export const Lists = (props) => {
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
@@ -40,7 +41,7 @@ export const Lists = (props) => {
 
     const get = async () => {
       axios
-        .get("http://localhost:8000/form/mostafid/?page=1", {
+        .get(`${server_url}/form/mostafid/?page=1`, {
           headers: {
             Authorization: `token ${token}`,
           },
@@ -71,9 +72,7 @@ export const Lists = (props) => {
     if (checkUser) {
       if (Object.keys(search).length === 0) {
         axios
-          .get(
-            `
-http://localhost:8000/form/mostafid/?page=1`,
+          .get(`${server_url}/form/mostafid/?page=1`,
             {
               headers: {
                 Authorization: `token ${token}`,
@@ -90,7 +89,7 @@ http://localhost:8000/form/mostafid/?page=1`,
           });
       } else {
         axios
-          .post("http://localhost:8000/form/front/?page=1", {
+          .post(`${server_url}/form/front/?page=1`, {
             search,
           })
           .then((res) => {
@@ -109,7 +108,7 @@ http://localhost:8000/form/mostafid/?page=1`,
     if (checkUser) {
       if (Object.keys(search).length === 0) {
         axios
-          .get(`http://localhost:8000/form/mostafid/?page=${currentPage + 1}`, {
+          .get(`${server_url}/form/mostafid/?page=${currentPage + 1}`, {
             headers: {
               Authorization: `token ${token}`,
             },
@@ -122,7 +121,7 @@ http://localhost:8000/form/mostafid/?page=1`,
           });
       } else {
         axios
-          .post(`http://localhost:8000nt/?page=${currentPage + 1}`,
+          .post(`${server_url}nt/?page=${currentPage + 1}`,
             {
               search,
             }
@@ -141,7 +140,7 @@ http://localhost:8000/form/mostafid/?page=1`,
     if (checkUser) {
       if (Object.keys(search).length === 0) {
         axios
-          .get(`http://localhost:8000fid/?page=${currentPage - 1}`,
+          .get(`${server_url}fid/?page=${currentPage - 1}`,
             {
               headers: {
                 Authorization: `token ${token}`,
@@ -156,7 +155,7 @@ http://localhost:8000/form/mostafid/?page=1`,
           });
       } else {
         axios
-          .post(`http://localhost:8000/form/front/?page=${currentPage - 1}`,
+          .post(`${server_url}/form/front/?page=${currentPage - 1}`,
             {
               search,
             }
