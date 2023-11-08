@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const Print = require("./printedNumberModel");
+
 const formSchema = mongoose.Schema(
   {
     assignDate: { type: String, default: null },
@@ -16,14 +18,24 @@ const formSchema = mongoose.Schema(
     birthPlace: { type: String, default: null, trim: true },
     fullName: { type: String, default: null, trim: true },
     formNumber: { type: String, default: null },
-    file:{ type: String, default: null },
+    file: { type: String, default: null },
     beneficiary: { type: Boolean, default: false, trim: true },
-    createdBy: {type: String, default: null },
+    createdBy: { type: String, default: null },
     note: { type: String, default: "", trim: true },
-    number: { type: Number, default: 0 }
+    number: { type: Number, default: null },
   },
   { timestamps: true }
 );
+
+formSchema.pre('save', async function (next) {
+  // find the biggest number in all Print collection
+  const biggestPrint = await Print.find().sort({ number: -1 }).limit(1);
+  const biggestNumber = biggestPrint[0].number;
+
+  console.log('The biggest number is:', biggestNumber);
+  this.number = biggestNumber;
+  next();
+})
 
 const Form = mongoose.model("Form", formSchema);
 module.exports = Form;

@@ -298,7 +298,7 @@ const getMostafidForms = async (req, res) => {
   let page = req.query.page;
   let start = page ? (page - 1) * 30 : 0;
   let end = page * 30;
-  await Form.deleteMany({fullName:null})
+  await Form.deleteMany({ fullName: null })
   try {
     let sz = await Form.aggregate([
       {
@@ -540,10 +540,7 @@ const editPrintNumber = async (req, res) => {
   if (!req.body.number)
     return res.status(400).json("number is not valid");
   try {
-    await Print.updateMany(
-      { number: req.body.number },
-      { $inc: { number: 1 } }
-    );
+    await Print.updateMany({}, { number: req.body.number });
     let data = await Form.updateMany({}, { number: req.body.number });
     return res.status(200).json(data);
   } catch (e) {

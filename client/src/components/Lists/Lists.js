@@ -121,7 +121,7 @@ export const Lists = (props) => {
           });
       } else {
         axios
-          .post(`${server_url}nt/?page=${currentPage + 1}`,
+          .post(`${server_url}/?page=${currentPage + 1}`,
             {
               search,
             }
@@ -140,7 +140,7 @@ export const Lists = (props) => {
     if (checkUser) {
       if (Object.keys(search).length === 0) {
         axios
-          .get(`${server_url}fid/?page=${currentPage - 1}`,
+          .get(`${server_url}/?page=${currentPage - 1}`,
             {
               headers: {
                 Authorization: `token ${token}`,

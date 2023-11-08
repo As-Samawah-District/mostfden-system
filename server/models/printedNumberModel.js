@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const formSchema = mongoose.Schema(
   {
-    number: { type: Number, default: 0 }
+    number: { type: Number, default: null }
   },
   { timestamps: true }
 );
