@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Print = require("./printedNumberModel");
 
 const formSchema = mongoose.Schema(
   {
@@ -28,12 +27,20 @@ const formSchema = mongoose.Schema(
 );
 
 formSchema.pre('save', async function (next) {
-  // find the biggest number in all Print collection
-  const biggestPrint = await Print.find().sort({ number: -1 }).limit(1);
-  const biggestNumber = biggestPrint[0].number;
+  // the number is equall any form.number value
+  // if there a form in db store the number
 
-  console.log('The biggest number is:', biggestNumber);
-  this.number = biggestNumber;
+  // find any form in this Form instade of this
+  const form = await Form.findOne({}).sort({ createdAt: -1 });
+
+  console.log(".......", form);
+
+  if (!form) {
+    this.number = 1;
+  } else {
+    this.number = form.number;
+  }
+
   next();
 })
 
