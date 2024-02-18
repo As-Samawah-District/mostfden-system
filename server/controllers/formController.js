@@ -669,4 +669,7 @@ module.exports = {
   getMshMostafidForms,
   deleteAll,
   addForLastFormsPendingTrue,
+  getPendingForms,
+  approveForm,
+  approveAll
 };
