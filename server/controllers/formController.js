@@ -365,7 +365,7 @@ const approveForm = async (req, res) => {
 };
 
 const approveAll = async (req, res) => {
-  if (!req.user.admin && !req.user.role.includes("admin"))
+  if (!req.user.admin)
     return res.status(400).json("user is not authorized");
 
   try {
@@ -385,8 +385,10 @@ const approveAll = async (req, res) => {
     return res.status(200).json("done");
   }
   catch (error) {
+    console.log(error)
     return res.status(400).json(error);
   }
+  
 };
 
 const deleteAll = async (req, res) => {

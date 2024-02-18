@@ -41,6 +41,7 @@ const Login = () => {
   };
   return (
     <div style={{ margin: "0px" }}>
+      {/* right side */}
       <div className={style.right}>
         <div
           style={{
@@ -49,12 +50,13 @@ const Login = () => {
           }}
         >
           <div className={style.description}>
-            <h4 style={{ fontSize: "25px" }}>مدير بلدية السماوة</h4>
+            <h4>مدير بلدية السماوة</h4>
             <h6 className={style.H6}>وحدة نظم المعلومات</h6>
           </div>
           <img
             className={style.logo}
             src="1698956106609-image-525acf9e29b89e9cdea769d5d8c0ef1b8720823e.png"
+            alt="stateImage"
           ></img>
         </div>
         <a
@@ -70,13 +72,11 @@ const Login = () => {
         </a>
       </div>
 
+      {/* middel & login page */}
       <div className={style.middel}>
-        <img
-          src="erp_xeqat5.png"
-          className={style.image3}
-        />
+        <img src="erp_xeqat5.png" className={style.image3} alt="loginImage" />
         <form className={style.rightM} onSubmit={handelSubmit}>
-          <img src="lock_vxwiql.png" />
+          <img src="lock_vxwiql.png" alt="" />
           <h4>!اهلا بك من جديد</h4>
           <input
             type="text"
@@ -114,9 +114,12 @@ const Login = () => {
           </button>
         </form>
       </div>
+
+      {/* phone */}
       <div className={style.container}>
+
         <form className={style.secondForm} onSubmit={handelSubmit}>
-          <img src="lock_vxwiql.png" />
+          <img src="lock_vxwiql.png" alt="lockImage" />
           <h4>!اهلا بك من جديد</h4>
           <input
             type="text"
@@ -137,6 +140,7 @@ const Login = () => {
             required
             style={{ marginTop: "10px" }}
           ></input>
+          
           {err && (
             <p
               style={{ color: "red", marginLeft: "auto", marginRight: "auto" }}
@@ -146,15 +150,10 @@ const Login = () => {
           )}
 
           <button type="submit">تسجيل الدخول</button>
-          <div style={{ margin: "0px", paddingTop: "5%" }}>
-            <div style={{ textAlign: "center" }}>
-              جميع الحقوق محفوظه لشركه الكوسج
-              <div>
-                <a href="https://ko-sage.com/">ko-sage.com</a>
-              </div>
-            </div>
-          </div>
-          <a
+        </form>
+
+
+        <a
             target="_wp"
             href="https://wa.me/17712204921"
             className={style.whats}
@@ -165,16 +164,9 @@ const Login = () => {
               +1&nbsp;(771)&nbsp;220‑4921
             </div>
           </a>
-        </form>
+
       </div>
-      <div style={{ margin: "0px", paddingTop: "85vh" }}>
-        <div style={{ textAlign: "center" }}>
-          جميع الحقوق محفوظه لشركه الكوسج
-          <div>
-            <a href="https://ko-sage.com/">ko-sage.com</a>
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 };

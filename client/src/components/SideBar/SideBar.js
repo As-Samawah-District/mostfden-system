@@ -41,6 +41,7 @@ export const SideBar = () => {
           }}
         ></i>
       </div>
+
       {(user.admin ||
         user.role.includes("add") ||
         user.role.includes("edit")) && (
@@ -107,6 +108,7 @@ export const SideBar = () => {
           </Link>
         </>
       )}
+
       {(user.admin ||
         user.role.includes("add") ||
         user.role.includes("edit") ||
@@ -129,6 +131,7 @@ export const SideBar = () => {
           </h1>
         </Link>
       )}
+
       {
         <>
           <a className={style.setting} onClick={handelclick}>
@@ -182,6 +185,26 @@ export const SideBar = () => {
               user.role.includes("setting")) && (
               <Link
                 className={style.section}
+                to="/pendingPage"
+                style={{ textDecoration: "NONE" }}
+              >
+                <h1 style={{ color: "white", fontSize: "20px" }}>
+                  <b style={{ marginRight: "20px", display: hide }}>المصادقه</b>
+                  <i
+                    className="fa fa-regular fa-thumbs-up"
+                    style={{ fontSize: "20px", marginRight: "17px" }}
+                  ></i>
+                  
+                </h1>
+              </Link>
+            )}
+
+            {(user.admin ||
+              user.role.includes("add") ||
+              user.role.includes("edit") ||
+              user.role.includes("setting")) && (
+              <Link
+                className={style.section}
                 to="/users"
                 style={{ textDecoration: "NONE" }}
               >
@@ -213,6 +236,7 @@ export const SideBar = () => {
                 </h1>
               </Link>
             )}
+
             {(user.admin ||
               user.role.includes("add") ||
               user.role.includes("edit") ||
@@ -238,6 +262,7 @@ export const SideBar = () => {
                 </h1>
               </Link>
             )}
+
             {(user.admin ||
               user.role.includes("add") ||
               user.role.includes("edit") ||
@@ -249,7 +274,7 @@ export const SideBar = () => {
               >
                 <h1 style={{ color: "white", fontSize: "20px" }}>
                   <b style={{ marginRight: "20px", display: hide }}>
-                     تحميل الارشيف
+                    تحميل الارشيف
                   </b>
 
                   <i

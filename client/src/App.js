@@ -30,6 +30,7 @@ import Estifada from "./components/publicBook/Estifada";
 import Tashier from "./components/publicBook/Tashier";
 import { List2 } from "./components/Lists/List2";
 import { ArchiveData } from "./components/Downloads/ArchiveData";
+import { PendingPage } from "./components/PendingPage/PendingPage";
 
 export const Context = createContext(null);
 
@@ -57,6 +58,7 @@ function App() {
         <Route exact path="/National" element={<National />} />
         <Route exact path="/estifada" element={<Estifada />} />
         <Route exact path="/tashier" element={<Tashier />} />
+        <Route exact path="/pendingPage" element={<PendingPage />} />
       </Routes>
     </>
   );
