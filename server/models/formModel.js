@@ -22,7 +22,7 @@ const formSchema = mongoose.Schema(
     createdBy: { type: String, default: null },
     note: { type: String, default: "", trim: true },
     number: { type: Number, default: null },
-    is_pending: { type: Boolean, default: false },
+    is_pending: { type: Boolean, default: true },
   },
   { timestamps: true }
 );
