@@ -41,7 +41,7 @@ export const PendingPage = (props) => {
 
     const get = async () => {
       axios
-        .get(`${server_url}/form/pending/?page=1`, {
+        .get(`${server_url}/form/pending?page=1`, {
           headers: {
             Authorization: `token ${token}`,
           },
@@ -67,22 +67,43 @@ export const PendingPage = (props) => {
     } else get();
   }, []);
 
-  const handlePending = (id) => {};
-
-  const handleAproveAllClick = async () => {
-    await axios
-      .patch(`${server_url}/form/approve-all`, {
-        headers: {
+  const handlePending = (id) => {
+    axios
+      .patch(
+        `${server_url}/form/approve/${id}`,
+        {},
+        {
+          headers: {
             Authorization: `token ${token}`,
           },
+        }
+      )
+      .then((res) => {
+        console.log("🚀 ~ handlePending ~ res:", res)
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log("🚀 ~ handlePending ~ err:", err)
+      });
+  };
+
+  const handleAproveAllClick = async (e) => {
+    e.preventDefault();
+    console.log("🚀 ~ handleAproveAllClick ~ token:", token)
+    const data = await axios
+      .put(`${server_url}/form/approve/all`, {}, {
+        headers: {
+          Authorization: `token ${token}`,
+        },
       }).then((res) => {
-            setData([]);
-            console.log("approved all");
-        }).catch((err) => {
-            console.log(err);
-        });
-  }
-//   wait
+        console.log("🚀 ~ handleAproveAllClick ~ res:", res)
+        window.location.reload();
+      }).catch((err) => {
+        console.log("🚀 ~ handleAproveAllClick ~ err:", err)
+      });
+  };
+
+  //   wait
   const handelSubmit = async (e) => {
     e.preventDefault();
     setCur(1);
@@ -195,7 +216,7 @@ export const PendingPage = (props) => {
           <button type="submit">
             <i className="fa fa-arrow-circle-left"></i>
           </button>
-          <button className={style.approve} style={{width: "100px"}} onClick={handleAproveAllClick}>
+          <button className={style.approve} style={{ width: "100px" }} onClick={handleAproveAllClick}>
             مصادقه الكل
           </button>
           <input

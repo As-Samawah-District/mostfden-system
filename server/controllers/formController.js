@@ -299,7 +299,7 @@ const getForms = async (req, res) => {
 };
 
 const getPendingForms = async (req, res) => {
-  console.log(req.query.page, "kkkkkkkkkk");
+  console.log(req.query.page, "pending LLLLLLLL");
   let page = req.query.page;
   //   let limit = req.query.limit ;
   let start = page ? (page - 1) * 30 : 0;
@@ -365,30 +365,34 @@ const approveForm = async (req, res) => {
 };
 
 const approveAll = async (req, res) => {
-  if (!req.user.admin)
-    return res.status(400).json("user is not authorized");
-
+  // if (!req.user.admin)
+  //   return res.status(400).json("user is not authorized");
+  console.log("🚀 ~ approveAll ~ req.user");
   try {
-    await
-      Form.updateMany({}, {
-        is_pending: false,
-      });
-    if (!req.user.hidden) {
-      await Log.create({
-        type: "تاكيد",
-        user: req.user.name,
-        details: `تاكيد جميع الاستمارات`,
-        system: os.platform(),
-        ip: IP.address(),
-      });
-    }
+    const forms = await Form.find({ is_pending: true });
+    console.log("🚀 ~ approveAll ~ forms:", forms)
+
+    await forms.forEach(async (form) => {
+      form.is_pending = false;
+      form.save();
+    });
+
+    // if (!req.user.hidden) {
+    //   await Log.create({
+    //     type: "تاكيد",
+    //     user: req.user.name,
+    //     details: `تاكيد جميع الاستمارات`,
+    //     system: os.platform(),
+    //     ip: IP.address(),
+    //   });
+    // }
     return res.status(200).json("done");
   }
   catch (error) {
     console.log(error)
     return res.status(400).json(error);
   }
-  
+
 };
 
 const deleteAll = async (req, res) => {

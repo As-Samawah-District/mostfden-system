@@ -25,7 +25,7 @@ router.get("/mostafid", check.validation, getMostafidForms);
 router.get("/mshmostafid", check.validation, getMshMostafidForms);
 router.get("/pending", check.validation, getPendingForms);
 router.patch("/approve/:id", check.validation, approveForm);
-router.patch("/approve-all", check.validation, approveAll);
+router.put("/approve/all", check.validation, approveAll);
 router.post("/front", getForms2);
 
 router.delete("/delete/:id", check.validation, deleteForm);

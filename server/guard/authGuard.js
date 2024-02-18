@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 
 exports.validation = (req, res, next) => {
   const auth = req.headers["authorization"];
+  console.log("🚀 ~ auth:", auth)
   if (auth == null) {
     return res.status(400).json("not authorized");
   }
