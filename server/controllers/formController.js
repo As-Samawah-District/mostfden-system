@@ -247,6 +247,18 @@ const createForm = async (req, res) => {
   }
 };
 
+const addForLastFormsPendingTrue = async () => {
+  let allForms = await Form.find({}).sort({ formNumber: -1 })
+  allForms.forEach(async (form) =>
+    await Form
+      .findByIdAndUpdate(form._id, {
+        is_pending: false,
+      })
+  );
+  console.log("done adding pending true for all old forms");
+  return;
+};
+
 const getForms = async (req, res) => {
   console.log(req.query.page, "kkkkkkkkkk");
   let page = req.query.page;
@@ -254,7 +266,7 @@ const getForms = async (req, res) => {
   let start = page ? (page - 1) * 30 : 0;
   let end = page * 30;
   try {
-    let data = await Form.find({})
+    let data = await Form.find({ is_pending: false })
       .sort({ formNumber: 1 })
       .skip(start)
       .limit(30);
@@ -285,6 +297,98 @@ const getForms = async (req, res) => {
     return res.status(400).json(error);
   }
 };
+
+const getPendingForms = async (req, res) => {
+  console.log(req.query.page, "kkkkkkkkkk");
+  let page = req.query.page;
+  //   let limit = req.query.limit ;
+  let start = page ? (page - 1) * 30 : 0;
+  let end = page * 30;
+  try {
+    let data = await Form.find({ is_pending: true })
+      .sort({ formNumber: 1 })
+      .skip(start)
+      .limit(30);
+    let sz = await Form.aggregate([
+      {
+        $project: {
+          formNumber: {
+            $toInt: "$formNumber",
+          },
+        },
+      },
+      {
+        $sort: {
+          formNumber: -1,
+        },
+      },
+      {
+        $limit: 1,
+      },
+    ]);
+    return res
+      .status(200)
+      .json({ len: sz[0] ? sz[0].formNumber : 1, data: data });
+
+    return res.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error);
+  }
+};
+
+const approveForm = async (req, res) => {
+  if (!req.user.admin && !req.user.role.includes("admin"))
+    return res.status(400).json("user is not authorized");
+
+  const form = await Form.findById(req.params.id);
+  if (!form) return res.status(400).json("there is no such form");
+  try {
+    await
+      Form.findByIdAndUpdate(req.params.id, {
+        is_pending: false,
+      });
+    if (!req.user.hidden) {
+      await Log.create({
+        type: "تاكيد",
+        user: req.user.name,
+        details: `تاكيد استمارة تحت اسم :${form.fullName}`,
+        system: os.platform(),
+        ip: IP.address(),
+      });
+    }
+    return res.status(200).json("done");
+  }
+  catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
+const approveAll = async (req, res) => {
+  if (!req.user.admin && !req.user.role.includes("admin"))
+    return res.status(400).json("user is not authorized");
+
+  try {
+    await
+      Form.updateMany({}, {
+        is_pending: false,
+      });
+    if (!req.user.hidden) {
+      await Log.create({
+        type: "تاكيد",
+        user: req.user.name,
+        details: `تاكيد جميع الاستمارات`,
+        system: os.platform(),
+        ip: IP.address(),
+      });
+    }
+    return res.status(200).json("done");
+  }
+  catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 const deleteAll = async (req, res) => {
   try {
     await Form.deleteMany({ beneficiary: false });
@@ -294,6 +398,7 @@ const deleteAll = async (req, res) => {
     return res.status(400).json(e);
   }
 };
+
 const getMostafidForms = async (req, res) => {
   let page = req.query.page;
   let start = page ? (page - 1) * 30 : 0;
@@ -318,7 +423,7 @@ const getMostafidForms = async (req, res) => {
       },
     ]);
 
-    let data = await Form.find({ beneficiary: true })
+    let data = await Form.find({ beneficiary: true, is_pending: false })
       .sort({ createdAt: -1 })
       .skip(start)
       .limit(30);
@@ -333,6 +438,7 @@ const getMostafidForms = async (req, res) => {
     return res.status(400).json(error);
   }
 };
+
 const getMshMostafidForms = async (req, res) => {
   // console.log(req.query.page,'kkkkkkkkkk');
   let page = req.query.page;
@@ -340,7 +446,7 @@ const getMshMostafidForms = async (req, res) => {
   let start = page ? (page - 1) * 30 : 0;
   let end = page * 30;
   try {
-    let data = await Form.find({ beneficiary: false })
+    let data = await Form.find({ beneficiary: false, is_pending: false })
       .sort({ createdAt: -1 })
       .skip(start)
       .limit(30);
@@ -469,6 +575,7 @@ const filter = async (req, res) => {
     res.status(400).json(error);
   }
 };
+
 const getForms2 = async (req, res) => {
   console.log("xxxzzz", req.query.page, req.body);
   let page = req.query.page;
@@ -561,4 +668,5 @@ module.exports = {
   getMostafidForms,
   getMshMostafidForms,
   deleteAll,
+  addForLastFormsPendingTrue,
 };
