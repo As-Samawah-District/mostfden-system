@@ -1,13 +1,13 @@
 .foot {
-  margin: "0px";
-  position: "fixed";
-  background-color: "rgb(80, 85, 92)";
-  bottom: "0";
-  height: "45px";
-  width: "100vw";
-  display: "flex";
-  justify-content: "space-between";
-  align-items: "center";
-  color: "white";
-  box-shadow: "0px 0px 10px 0px #000";
+  margin: 0;
+  position: fixed;
+  background-color: rgb(80, 85, 92);
+  bottom: 0;
+  height: 45px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0px 0px 10px 0px #000;
 }

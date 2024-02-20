@@ -31,6 +31,7 @@ import Tashier from "./components/publicBook/Tashier";
 import { List2 } from "./components/Lists/List2";
 import { ArchiveData } from "./components/Downloads/ArchiveData";
 import { PendingPage } from "./components/PendingPage/PendingPage";
+import SearchBeforeAddNew from "./components/SearchBeforeAddNew/SearchBeforeAddNew";
 
 export const Context = createContext(null);
 
@@ -42,6 +43,7 @@ function App() {
         <Route exact path="/forms" element={<Lists />} />
         <Route exact path="/temporaryforms" element={<List2 />} />
         <Route exact path="/profile/:id" element={<Profile />} />
+        <Route exact path="/form/search" element={<SearchBeforeAddNew />} />
         <Route exact path="/form/add" element={<AddForm />} />
         <Route exact path="/users" element={<Users />} />
         <Route exact path="/classes" element={<Class />} />

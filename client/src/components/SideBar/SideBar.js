@@ -85,6 +85,25 @@ export const SideBar = () => {
         </Link>
       )}
 
+      {(user.admin ||
+        user.role.includes("add") ||
+        user.role.includes("edit") ||
+        user.role.includes("setting")) && (
+        <Link
+          className={style.section}
+          to="/pendingPage"
+          style={{ textDecoration: "NONE" }}
+        >
+          <h1 style={{ color: "white", fontSize: "20px" }}>
+            <b style={{ marginRight: "20px", display: hide }}>المصادقه</b>
+            <i
+              className="fa fa-regular fa-thumbs-up"
+              style={{ fontSize: "20px", marginRight: "17px" }}
+            ></i>
+          </h1>
+        </Link>
+      )}
+
       {(user.admin || user.role.includes("add")) && (
         <>
           <Link
@@ -175,26 +194,6 @@ export const SideBar = () => {
                     className="fa fa-check-square"
                     style={{ fontSize: "20px", marginRight: "17px" }}
                   ></i>
-                </h1>
-              </Link>
-            )}
-
-            {(user.admin ||
-              user.role.includes("add") ||
-              user.role.includes("edit") ||
-              user.role.includes("setting")) && (
-              <Link
-                className={style.section}
-                to="/pendingPage"
-                style={{ textDecoration: "NONE" }}
-              >
-                <h1 style={{ color: "white", fontSize: "20px" }}>
-                  <b style={{ marginRight: "20px", display: hide }}>المصادقه</b>
-                  <i
-                    className="fa fa-regular fa-thumbs-up"
-                    style={{ fontSize: "20px", marginRight: "17px" }}
-                  ></i>
-                  
                 </h1>
               </Link>
             )}
