@@ -50,6 +50,22 @@
   }
 }
 
+.whats {
+  position: relative;
+  text-align: center;
+  background-color: #25d366;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  float: left;
+  top: -100px;
+  margin-left: 20px;
+  text-decoration: none;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+}
+
 .animateImage{
   position: relative;
   animation: 2s infinite ease-in-out animateImage;

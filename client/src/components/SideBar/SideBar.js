@@ -108,7 +108,7 @@ export const SideBar = () => {
         <>
           <Link
             className={style.section}
-            to="/form/add"
+            to="/form/search"
             style={{ textDecoration: "NONE" }}
           >
             <h1 style={{ color: "white", fontSize: "20px" }}>

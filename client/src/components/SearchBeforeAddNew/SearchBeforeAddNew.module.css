@@ -1,70 +1,163 @@
-
-:root {
-  --rad: 0.7rem;
-  --dur: 0.3s;
-  --color-light: #fff;
-  --color-brand: #57bd84;
-  --font-fam: "Lato", sans-serif;
-  --height: 5rem;
-  --btn-width: 6rem;
-  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+.Lcontainer {
+  background-color: #ffffff;
+  width: 92%;
+  margin-left: 2%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 0px 11px 2px;
+  margin-top: 50px;
 }
 
-.Container {
+.Lcontainer form {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  font-size: 10px;
-  height: 100%;
-  box-sizing: border-box;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+.Lcontainer form input,
+.Lcontainer form select {
+  text-align: right;
+  font-size: large;
+  margin-right: 25px;
+  display: block;
+  width: 15%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 12px;
+  transition: border-color 0.15s ease-in-out box-shadow 0.15s ease-in-out;
+  float: right;
+}
+.Lcontainer form select {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 15px;
+  margin-top: 2%;
+}
+.Lcontainer form input:focus {
+  box-shadow: 1px 1px 2px #aaaaaa;
+  border: none;
 }
 
-
-.Container form {
-  position: relative;
-  width: 30rem;
-  background: var(--color-brand);
-  border-radius: var(--rad);
+.Lcontainer form button {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  background-color: #00000f;
+  margin-left: "8%";
+  border: "none";
+  margin-top: 2%;
+}
+.Lcontainer form input {
+  margin-top: 2%;
 }
 
-.Container input[type="search"],
-.Container form button{
-  height: var(--height);
-  font-family: var(--font-fam);
-  border: 0;
-  color: var(--color-dark);
-  font-size: 1.8rem;
+.girdTable {
+  display: grid;
+  grid-template-columns: 2fr 4fr 4fr 4fr 4fr 4fr 4fr 4fr 3fr;
+  text-align: center;
+  background-color: rgba(215, 215, 215, 0.445);
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 11px 2px;
+}
+.girdItem {
+  font-size: 14px;
+  text-align: center;
+  font-family: "Cairo";
+  font-weight: 600;
+  padding-top: 10px;
+}
+.girdTable2 {
+  display: grid;
+  grid-template-columns: 2fr 4fr 4fr 4fr 4fr 4fr 4fr 4fr 3fr;
+  background-color: #ffffff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-top: 20px;
 }
 
-input[type="search"] {
-  outline: 0; 
-  width: 100%;
-  background: var(--color-light);
-  padding: 0 1.6rem;
-  border-radius: var(--rad);
-  appearance: none; 
-  transition: all var(--dur) var(--bez);
-  transition-property: width, border-radius;
-  z-index: 1;
-  position: relative;
+.girdItem2 {
+  font-size: 14px;
+  text-align: center;
+  font-family: "Cairo";
+  font-weight: 500;
+  padding-top: 10px;
+}
+.girdItem2 h5 {
+  color: gray;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #00000f;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 15%;
 }
 
-.Container form button{
-  display: none; 
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: var(--btn-width);
-  font-weight: bold;
-  background: var(--color-brand);
-  border-radius: 0 var(--rad) var(--rad) 0;
-}
-
-input:not(:placeholder-shown) {
-  border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width));
-  + button {
-    display: block;
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
   }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination button {
+  color: white;
+  background-color: #00000f;
+  float: left;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+}
+
+
+.pagination button:hover:not(.active) {
+  background-color: #ddd;
+}
+.tba3a{
+  width: 10rem;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  background-color: #00000f;
+  border: "none";
+  margin-top: 3rem;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 2rem;
+}
+
+
+.approve{
+  width: 70px;
+  height: 50px;
+  border-radius: 10px;
+  color: white;
+  border: #212529;
+  background-color: #00000f;
+  cursor: pointer;
+  font-weight: 700;
 }

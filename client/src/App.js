@@ -31,7 +31,7 @@ import Tashier from "./components/publicBook/Tashier";
 import { List2 } from "./components/Lists/List2";
 import { ArchiveData } from "./components/Downloads/ArchiveData";
 import { PendingPage } from "./components/PendingPage/PendingPage";
-import SearchBeforeAddNew from "./components/SearchBeforeAddNew/SearchBeforeAddNew";
+import {SearchBeforeAddNew} from "./components/SearchBeforeAddNew/SearchBeforeAddNew";
 
 export const Context = createContext(null);
 

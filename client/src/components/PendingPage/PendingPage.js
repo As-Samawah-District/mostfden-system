@@ -14,6 +14,7 @@ export const PendingPage = (props) => {
   const [searchType, setType] = useState("");
   const [searchValue, setValue] = useState("");
   const [search, setSearch] = useState({});
+  const [countyNumber, SetCountyNumber] = useState(null);
   const [num, setNum] = useState(0);
   const [currentPage, setCur] = useState(1);
   const [check, setCheck] = useState(false);
@@ -216,35 +217,16 @@ export const PendingPage = (props) => {
           <button type="submit">
             <i className="fa fa-arrow-circle-left"></i>
           </button>
-          <button className={style.approve} style={{ width: "100px" }} onClick={handleAproveAllClick}>
+          <button className={style.approve} style={{ width: "200px" }} onClick={handleAproveAllClick}>
             مصادقه الكل
           </button>
           <input
             type={"text"}
-            placeholder="اسم الزوج/ه"
-            name="husbandName"
-            onChange={(e) => {
-              setSearch(e.target.value);
-              sethusbandName2(e.target.value);
-              handelSubmit(e);
-            }}
-          />
-          <input
-            type={"text"}
-            placeholder="اسم الزوج/ه"
-            onChange={(e) => {
-              setSearch(e.target.value);
-              sethusbandName(e.target.value);
-              handelSubmit(e);
-            }}
-          />
-          <input
-            type={"text"}
-            placeholder="اسم مقدم الطلب"
+            placeholder="رقم المقاطعة"
             name="fullName"
             onChange={(e) => {
               setSearch(e.target.value);
-              setFullName(e.target.value);
+              SetCountyNumber(e.target.value);
               handelSubmit(e);
             }}
           ></input>

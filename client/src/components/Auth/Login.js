@@ -83,6 +83,18 @@ const Login = () => {
         />
       </div>
 
+      <a
+          target="_wp"
+          href="https://wa.me/17712204921"
+          className={style.whats}
+        >
+          <div>التواصل مع الدعم</div>
+          <div>
+            <i className="fa fa-whatsapp" style={{ width: "25px" }}></i>{" "}
+            +1&nbsp;(771)&nbsp;220‑4921
+          </div>
+        </a>
+
       {/* main card login */}
       {/* style={isSmallScreen ? styles.mainCardBig : styles.mainCardSmall} */}
       <MDBContainer>
