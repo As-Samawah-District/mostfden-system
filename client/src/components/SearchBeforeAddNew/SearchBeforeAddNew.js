@@ -14,7 +14,7 @@ export const SearchBeforeAddNew = (props) => {
   const [searchType, setType] = useState("");
   const [searchValue, setValue] = useState("");
   const [search, setSearch] = useState({});
-  const [countyNumber, SetCountyNumber] = useState(null);
+  const [pieceNumber, SetpieceNumber] = useState(null);
   const [num, setNum] = useState(0);
   const [currentPage, setCur] = useState(1);
   const [check, setCheck] = useState(false);
@@ -50,7 +50,7 @@ export const SearchBeforeAddNew = (props) => {
           },
         })
         .then((res) => {
-          setData(res.data.data);
+          setData([]);
           setAll(res.data.data);
           setNum(res.data.len);
           localStorage.setItem("num", res.data.len);
@@ -67,7 +67,8 @@ export const SearchBeforeAddNew = (props) => {
       !jwtDecode(token).role.includes("edit")
     ) {
       setData({});
-    } else get();
+    } 
+    else get();
   }, []);
 
   //   wait
@@ -185,14 +186,16 @@ export const SearchBeforeAddNew = (props) => {
           </button>
           <input
             type={"text"}
-            placeholder="رقم المقاطعة"
-            name="fullName"
+            placeholder="أبحث"
+            name="pieceNumber"
             onChange={(e) => {
-              SetCountyNumber(e.target.value);
+              SetpieceNumber(e.target.value);
               setSearch(e.target.value);
               handelSubmit(e);
             }}
+            style={{width: "300px", fontSize: "25px"}}
           ></input>
+            <h1 style={{ marginTop: "30px" }}> أبحث</h1>
         </form>
         <div className={style.girdTable}>
           <div className={style.girdItem}>الاجراء </div>
@@ -301,7 +304,7 @@ export const SearchBeforeAddNew = (props) => {
               </>
             );
           })}
-        {data.length == 0 && (
+        {data && (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <button
               className={style.tba3a}
