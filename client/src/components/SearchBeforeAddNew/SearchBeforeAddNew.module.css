@@ -9,7 +9,9 @@
 
 .Lcontainer form {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
   margin-bottom: 30px;
 }
 .Lcontainer form input,
@@ -31,16 +33,21 @@
   transition: border-color 0.15s ease-in-out box-shadow 0.15s ease-in-out;
   float: right;
 }
+.Lcontainer form input:focus {
+  outline: none;
+  box-shadow: 1px 1px 2px #aaaaaa;
+  border: none;
+}
+
+
 .Lcontainer form select {
   margin-top: auto;
   margin-bottom: auto;
   padding: 15px;
   margin-top: 2%;
 }
-.Lcontainer form input:focus {
-  box-shadow: 1px 1px 2px #aaaaaa;
-  border: none;
-}
+
+  
 
 .Lcontainer form button {
   width: 50px;

@@ -17,6 +17,7 @@ import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenNib } from "@fortawesome/free-solid-svg-icons";
 import { server_url } from "../../config";
+import Footer from "../footer/Footer";
 
 const Login = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1200);
@@ -166,6 +167,7 @@ const Login = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
+      <Footer/>
     </div>
   );
 };

@@ -27,7 +27,6 @@ export const SearchBeforeAddNew = (props) => {
   // console.log(num);
   let token = Cookies.get("auth");
 
-  
   useEffect(() => {
     if (!token) window.location.replace("/");
     if (
@@ -67,8 +66,7 @@ export const SearchBeforeAddNew = (props) => {
       !jwtDecode(token).role.includes("edit")
     ) {
       setData({});
-    } 
-    else get();
+    } else get();
   }, []);
 
   //   wait
@@ -181,21 +179,23 @@ export const SearchBeforeAddNew = (props) => {
       <Nav name="الكتب" number={num} />
       <div className={style.Lcontainer}>
         <form onSubmit={handelSubmit}>
-          <button type="submit">
-            <i className="fa fa-arrow-circle-left"></i>
-          </button>
-          <input
-            type={"text"}
-            placeholder="أبحث"
-            name="pieceNumber"
-            onChange={(e) => {
-              SetpieceNumber(e.target.value);
-              setSearch(e.target.value);
-              handelSubmit(e);
-            }}
-            style={{width: "300px", fontSize: "25px"}}
-          ></input>
-            <h1 style={{ marginTop: "30px" }}> أبحث</h1>
+          <h1 style={{ marginTop: "30px" }}> أبحث</h1>
+          <div>
+            <button type="submit" style={{ float: "left" }}>
+              <i className="fa fa-arrow-circle-left"></i>
+            </button>
+            <input
+              type={"text"}
+              placeholder="أبحث"
+              name="pieceNumber"
+              onChange={(e) => {
+                SetpieceNumber(e.target.value);
+                setSearch(e.target.value);
+                handelSubmit(e);
+              }}
+              style={{ width: "300px", fontSize: "25px" }}
+            ></input>
+          </div>
         </form>
         <div className={style.girdTable}>
           <div className={style.girdItem}>الاجراء </div>
