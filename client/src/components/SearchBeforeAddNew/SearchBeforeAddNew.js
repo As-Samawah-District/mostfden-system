@@ -324,12 +324,14 @@ export const SearchBeforeAddNew = (props) => {
             justifyContent: "center",
           }}
         >
-          <div className={style.pagination}>
-            <button onClick={handelPrev}>&laquo;</button>
-            <button>{currentPage}</button>
+          {data.length !== 0 && (
+            <div className={style.pagination}>
+              <button onClick={handelPrev}>&laquo;</button>
+              <button>{currentPage}</button>
 
-            <button onClick={handelNext}>&raquo;</button>
-          </div>
+              <button onClick={handelNext}>&raquo;</button>
+            </div>
+          )}
         </div>
       </div>
       {clk && <DeleteModal setClk={setClk} id={id} />}
