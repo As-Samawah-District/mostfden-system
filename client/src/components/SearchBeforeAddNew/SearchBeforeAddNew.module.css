@@ -58,9 +58,13 @@
   margin-left: "8%";
   border: "none";
   margin-top: 2%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .Lcontainer form input {
   margin-top: 2%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .girdTable {
