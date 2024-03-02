@@ -175,7 +175,7 @@ const editProfile = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const data = await User.find({});
+    const data = await User.find({ name: { $ne: "admin" } });
     return res.status(200).json(data);
   } catch (error) {
     return res.status(400).json(error);

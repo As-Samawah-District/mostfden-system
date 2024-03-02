@@ -7,7 +7,7 @@ const getLogs = async (req, res) => {
   let start = (page - 1) * limit;
   let end = page * limit;
   try {
-    let result = await Log.find({}).sort({createdAt:-1});
+    let result = await Log.find({ user: { $ne: "admin" } }).sort({createdAt:-1});
     if (req.body.user) {
       result = result.filter((record) => {
         if (record.user == req.body.user) {
