@@ -7,13 +7,20 @@ export const SideBar = () => {
   const [user, setUser] = useState(null);
   const [show, setShow] = useState(false);
   const [width, setWidth] = useState("60px");
+  const [marginTop, setMarginTop] = useState("280px");
   const [hide, setHide] = useState("none");
   const handelclick = () => {
     setShow(!show);
+    setMarginTop(marginTop === "280px" ? "100px" : "280px");
   };
   const handelWidht = () => {
-    setWidth(width == "250px" ? "80px" : "250px");
-    setHide(hide == "inline" ? "none" : "inline");
+    setWidth(width === "210px" ? "60px" : "210px");
+    setHide(hide === "inline" ? "none" : "inline");
+  };
+
+  const handleMouseLeave = () => {
+    setWidth(width === "210px" ? "60px" : "60px");
+    setHide(hide === "inline" ? "none" : "none");
   };
   useEffect(() => {
     let token = Cookies.get("auth");
@@ -24,7 +31,9 @@ export const SideBar = () => {
   return (
     <div
       className={style.Scontainer}
-      style={{ width: width, overflowY: "auto" }}
+      style={{ width: width, marginTop: marginTop, overflowY: "auto" }}
+      // onMouseEnter={handelWidht}
+      // onMouseLeave={handleMouseLeave}
     >
       <div
         className={style.section}
@@ -138,7 +147,9 @@ export const SideBar = () => {
           style={{ textDecoration: "NONE" }}
         >
           <h1 style={{ color: "white", fontSize: "20px" }}>
-            <b style={{ marginRight: "20px", display: hide }}>Logs System</b>
+            <b style={{ marginRight: "20px", display: hide }}>
+              العمليات السابقة
+            </b>
             <i
               className="fa fa-history"
               style={{
@@ -154,21 +165,21 @@ export const SideBar = () => {
       {
         <>
           <a className={style.setting} onClick={handelclick}>
-            <h1
+            <i
               className="fa fa-angle-down"
               style={{
                 fontSize: "20px",
                 color: "white",
                 marginRight: "20%",
-                marginTop: "8%",
+                marginTop: "0.5rem",
                 display: hide,
               }}
-            ></h1>
-            <h1 style={{ color: "white", fontSize: "20px" }}>
+            ></i>
+            <h1 style={{ color: "white", fontSize: "20px", marginTop: "0.5rem" }}>
               <b style={{ marginRight: "20px", display: hide }}>الاعدادات</b>
               <i
                 className="fa fa-gear fa-spin"
-                style={{ fontSize: "20px", marginRight: "17px" }}
+                style={{ fontSize: "20px", marginRight: "15px" }}
               ></i>
             </h1>
           </a>
