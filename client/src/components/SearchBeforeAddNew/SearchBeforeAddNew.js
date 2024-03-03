@@ -245,6 +245,13 @@ export const SearchBeforeAddNew = (props) => {
                         }}
                       ></i>
                     )}
+                    <i
+                      className="fa fa-eye"
+                      style={{ fontSize: "1.2rem", cursor: "pointer" }}
+                      onClick={() => {
+                        window.location.replace(`/form/print/${data._id}`);
+                      }}
+                    ></i>
                   </div>
                   <div className={style.girdItem2}>
                     {" "}
