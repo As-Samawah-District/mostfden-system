@@ -33,7 +33,7 @@ export const SideBar = () => {
       className={style.Scontainer}
       style={{ width: width, marginTop: marginTop, overflowY: "auto" }}
       // onMouseEnter={handelWidht}
-      // onMouseLeave={handleMouseLeave}
+      onMouseLeave={handleMouseLeave}
     >
       <div
         className={style.section}
