@@ -7,11 +7,11 @@ export const SideBar = () => {
   const [user, setUser] = useState(null);
   const [show, setShow] = useState(false);
   const [width, setWidth] = useState("60px");
-  const [marginTop, setMarginTop] = useState("200px");
+  const [marginTop, setMarginTop] = useState("180px");
   const [hide, setHide] = useState("none");
   const handelclick = () => {
     setShow(!show);
-    setMarginTop(marginTop === "200px" ? "50px" : "200px");
+    setMarginTop(marginTop === "180px" ? "30px" : "180px");
   };
   const handelWidht = () => {
     setWidth(width === "210px" ? "60px" : "210px");
