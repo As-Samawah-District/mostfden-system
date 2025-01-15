@@ -27,7 +27,7 @@ const Login = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  },[]);
+  }, []);
 
   return (
     <MDBContainer style={isSmallScreen ? styles.mainCardBig : styles.mainCardSmall}>
@@ -35,10 +35,10 @@ const Login = () => {
       {/* state logo */}
       <div>
         <img src="../../../public/image-525acf9e29b89e9cdea769d5d8c0ef1b8720823e_g8nzze.png" alt="StateLgog" />
-            <div>
-                <h1>مدرية امن العراق</h1>
-                <p>قسم ادارة البيانات</p>
-            </div>
+        <div>
+          <h1>مدرية امن العراق</h1>
+          <p>قسم ادارة البيانات</p>
+        </div>
       </div>
 
       {/* main card login */}
@@ -86,7 +86,7 @@ const Login = () => {
                 size="lg"
               />
 
-              <MDBBtn className="mb-4 px-5" style={{fontSize: "20px"}} color="dark" size="lg">
+              <MDBBtn className="mb-4 px-5" style={{ fontSize: "20px" }} color="dark" size="lg">
                 تسجيل الدخول
               </MDBBtn>
             </MDBCardBody>
@@ -107,10 +107,10 @@ const styles = {
   small: {
     marginTop: "50px",
   },
-  mainCardSmall:{
+  mainCardSmall: {
     marginTop: "50px"
   },
-  mainCardBig:{
+  mainCardBig: {
     marginTop: "150px"
   }
 };

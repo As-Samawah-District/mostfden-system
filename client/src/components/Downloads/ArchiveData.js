@@ -13,10 +13,10 @@ export const ArchiveData = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({pass}),
+      body: JSON.stringify({ pass }),
     })
       .then((response) => {
-         console.log(response);
+        console.log(response);
         if (response.status == 200) {
           return response.blob();
         } else {
