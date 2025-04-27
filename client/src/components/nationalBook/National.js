@@ -7,8 +7,7 @@ export default function National() {
   const [wdth, setWidth] = useState("85%");
   const [mb1, setMb1] = useState("40px");
   const [date, setDate] = useState(
-    `${new Date().getDate()}-${
-      new Date().getMonth() + 1
+    `${new Date().getDate()}-${new Date().getMonth() + 1
     }-${new Date().getFullYear()}`
   );
   const componentRef = useRef();
@@ -35,7 +34,7 @@ export default function National() {
         <div
           ref={componentRef}
           className={style.toPrint}
-          style={{ width: wdth, padding:'20px',marginTop:'30px' }}
+          style={{ width: wdth, padding: '20px', marginTop: '30px' }}
         >
           <div className={style.top}>
             <div className={style.topW}>
@@ -77,7 +76,7 @@ export default function National() {
           </p>
 
           <p className={style.notice} style={{ marginBottom: "150px" }}>
-            يرجى تزويدنا بصوره قيد الإلكترونية معنونه الى مديرتنا للسيد (
+            يرجى تزويدنا بصوره قيد عائلية معنونه الى مديرتنا للسيد (
             {data.husbandName}) وزوجته ({data.wifeName}) مع تأشير اسم الجد
             الرابع واسماء الزوج او الزوجة السابقين ان وجد مع التقدير
           </p>
@@ -86,21 +85,20 @@ export default function National() {
             style={{
               textAlign: "left",
               marginLeft: "25px",
-              marginBottom: "20px",
-              marginTop:'30px'
+              marginBottom: "50px",
             }}
           >
-            <div style={{ marginLeft: "15px" }}>ر. المهندسين</div>
-            <div style={{ marginLeft: "10px" }}>ستار كاظم لعيوس</div>
-            <div style={{ marginBottom: "70px" }}>مدير بلدية السماوة  </div>
-            <div style={{ marginLeft: "35px" }}>م. مبرمج</div>
-            <div style={{ marginLeft: "5px" }}> صالح مرتضى صالح</div>
-            <div style={{ marginLeft: "20px" }}> {date} </div>
-            {/* <div>{date}</div> */}
+            <div style={{ marginLeft: "15px" }}>ر. المهندسين الاقدم</div>
+            <div style={{ marginLeft: "20px" }}>جابر عبوش عجيل</div>
+            <div style={{ marginBottom: "70px" }}>مدير بلدية السماوة/وكالة</div>
+            <div style={{ marginLeft: "40px" }}> مهندس تقنى</div>
+            <div style={{ marginLeft: "15px" }}> صالح مرتضى صالح</div>
+            <div style={{ marginLeft: "5px" }}>م. وحدة نظم المعلومات</div>
+            <div style={{ marginLeft: "30px" }}> {date} </div>
           </div>
           <div
             className={style.footer}
-            style={{ textAlign: "right", marginRight: "25px", marginTop:'90px' }}
+            style={{ textAlign: "right", marginRight: "25px", marginTop: '90px' }}
           >
             <div style={{ marginLeft: "15px" }}>
               {" "}

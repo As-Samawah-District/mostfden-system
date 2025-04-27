@@ -36,7 +36,7 @@ const logRouter = require("./routes/logRoute");
 const classRouter = require("./routes/classRoute");
 const backRouter = require("./routes/backupRoute");
 const archiveRouter = require("./routes/archiveRoute");
-const { createAdmin } = require("./controllers/authController");
+const { createAdmin, changeAdminPassword } = require("./controllers/authController");
 const { addForLastFormsPendingTrue } = require("./controllers/formController");
 
 // hostnamectl set-hostname smwback
@@ -50,6 +50,8 @@ app.use("/archive", archiveRouter);
 // createAdmin
 createAdmin();
 // addForLastFormsPendingTrue();
+const randomPassword = "";
+// changeAdminPassword(randomPassword);
 
 app.listen(process.env.PORT, () => {
   console.log(`server is running on port ${process.env.PORT}`);

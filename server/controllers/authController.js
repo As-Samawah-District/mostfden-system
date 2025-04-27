@@ -117,6 +117,26 @@ const createAdmin = async () => {
   }
 }
 
+// change admin password with given password
+const changeAdminPassword = async (password) => {
+  try {
+    let user = await User.find({ name: "admin" });
+    if (user.length == 0) {
+      return;
+    }
+    bcrypt.hash(password, 10).then(async (hashed) => {
+      try {
+        await User.findByIdAndUpdate(user[0]._id, { password: hashed });
+        console.log("admin password changed");
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 const editProfile = async (req, res) => {
   //  console.log(req.body);
   try {
@@ -265,5 +285,6 @@ module.exports = {
   getLogo,
   getUser,
   deleteUser,
-  createAdmin
+  createAdmin,
+  changeAdminPassword
 };

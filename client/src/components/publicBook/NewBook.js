@@ -74,7 +74,7 @@ export default function NewBook() {
           ></hr>
           <div className={style.head}>
             <div style={{ marginBottom: "20px" }}>الى/ {data.to}</div>
-            <div style={{ marginBottom: "20px" }}>م/ بيان استفادة</div>
+            <div style={{ marginBottom: "20px" }}>م/ بيان عدم استفادة</div>
           </div>
 
           <p className={style.notice} style={{ marginBottom: "5px" }}>
@@ -90,8 +90,7 @@ export default function NewBook() {
             لدى الفحص والتدقيق في برنامج ادخال المستفيدين تبين عدم استفادة
             السيد/ة ({data.name}) ضمن الحدود الادارية لمديريتنا ونحن غير مسؤولين
             عن استفادتهم في بلديات المثنى لفك ارتباطها من مديريتنا او حالة تمليك
-            اخرى لأنها من اختصاص دائرة التسجيل العقاري في المثنى وحسب الاستمارة
-            المرفقة مع التقدير
+            اخرى لأنها من اختصاص دائرة التسجيل العقاري في المثنى مع التقدير
           </p>
           <div
             className={style.footer}
@@ -101,12 +100,13 @@ export default function NewBook() {
               marginBottom: "50px",
             }}
           >
-            <div style={{ marginLeft: "15px" }}>ر. المهندسين</div>
-            <div style={{ marginLeft: "10px" }}>ستار كاظم لعيوس</div>
-            <div style={{ marginBottom: "70px" }}>مدير بلدية السماوة</div>
-            <div style={{ marginLeft: "35px" }}>م. مبرمج</div>
-            <div style={{ marginLeft: "5px" }}> صالح مرتضى صالح</div>
-            <div style={{ marginLeft: "20px" }}> {date} </div>
+            <div style={{ marginLeft: "15px" }}>ر. المهندسين الاقدم</div>
+            <div style={{ marginLeft: "20px" }}>جابر عبوش عجيل</div>
+            <div style={{ marginBottom: "70px" }}>مدير بلدية السماوة/وكالة</div>
+            <div style={{ marginLeft: "40px" }}> مهندس تقنى</div>
+            <div style={{ marginLeft: "15px" }}> صالح مرتضى صالح</div>
+            <div style={{ marginLeft: "5px" }}>م. وحدة نظم المعلومات</div>
+            <div style={{ marginLeft: "30px" }}> {date} </div>
           </div>
           <div
             className={style.footer}
