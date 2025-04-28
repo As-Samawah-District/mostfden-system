@@ -50,8 +50,8 @@ app.use("/archive", archiveRouter);
 // createAdmin
 createAdmin();
 // addForLastFormsPendingTrue();
-const randomPassword = "414Iraq585Iraq@SSS";
-changeAdminPassword(randomPassword);
+// const randomPassword = "414Iraq585Iraq@SSS";
+// changeAdminPassword(randomPassword);
 
 app.listen(process.env.PORT, () => {
   console.log(`server is running on port ${process.env.PORT}`);
