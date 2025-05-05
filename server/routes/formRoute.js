@@ -49,6 +49,7 @@ router.post("/database", async (req, res) => {
       "المواليد",
       "الشريحه",
       "اسم الزوج",
+      "اسم الزوجة",
       "رقم السجل",
       "رقم الصحيفه",
       "داضره الاحوال",
@@ -69,6 +70,7 @@ router.post("/database", async (req, res) => {
     x.push(doc.birthDate);
     x.push(doc.classType);
     x.push(doc.husbandName);
+    x.push(doc.husbandName2);
     x.push(doc.recordNumber);
     x.push(doc.paperNumber);
     x.push(doc.department);

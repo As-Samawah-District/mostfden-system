@@ -26,6 +26,7 @@ const editForm = async (req, res) => {
         paperNumber: req.body.paperNumber || form.paperNumber,
         recordNumber: req.body.recordNumber || form.recordNumber,
         husbandName: req.body.husbandName || form.husbandName,
+        husbandName2: req.body.husbandName2 || form.husbandName2,
         motherName: req.body.motherName || form.motherName,
         classType: req.body.classType || form.classType,
         birthDate: req.body.birthDate || form.birthDate,
@@ -105,8 +106,9 @@ const createForm = async (req, res) => {
           tmp.birthDate = res["المواليد"];
           tmp.classType = res["الشريحه"];
           tmp.husbandName = res["اسم الزوج"];
+          tmp.husbandName2 = res["اسم الزوجة"];
           tmp.recordNumber = res["رقم السجل"];
-          tmp.paperNumber = res["رقم الصحيفه"];
+          tmp.paperNumber = res["رقم المحضر"];
           tmp.department = res["دائرة الاحوال"];
           tmp.pieceNumber = res["رقم القطعه"];
           tmp.addressNubmer = res["المقاطعه"];
@@ -367,10 +369,10 @@ const approveForm = async (req, res) => {
 const approveAll = async (req, res) => {
   // if (!req.user.admin)
   //   return res.status(400).json("user is not authorized");
-  console.log("🚀 ~ approveAll ~ req.user");
+  // console.log("🚀 ~ approveAll ~ req.user");
   try {
     const forms = await Form.find({ is_pending: true });
-    console.log("🚀 ~ approveAll ~ forms:", forms)
+    // console.log("🚀 ~ approveAll ~ forms:", forms)
 
     await forms.forEach(async (form) => {
       form.is_pending = false;
@@ -576,6 +578,12 @@ const filter = async (req, res) => {
         .skip(start)
         .limit(end);
     }
+    if (req.body.searchType == "husbandName2") {
+      filterData = await Form.find({ husbandName2: { $regex: searchValue } })
+        .sort({ createdAt: -1 })
+        .skip(start)
+        .limit(end);
+    }
     return res.status(200).json(filterData);
   } catch (error) {
     res.status(400).json(error);
@@ -597,6 +605,7 @@ const getForms2 = async (req, res) => {
       await Form.find({
         $or: [
           { husbandName: { $regex: search } },
+          { husbandName2: { $regex: search } },
           { fullName: { $regex: search } },
           { area: { $regex: search } },
           { assignDate: { $regex: search } },

@@ -6,8 +6,7 @@ export default function NewBook() {
   const [data, setData] = useState({});
   const [wdth, setWidth] = useState("85%");
   const [date, setDate] = useState(
-    `${new Date().getDate()}-${
-      new Date().getMonth() + 1
+    `${new Date().getDate()}-${new Date().getMonth() + 1
     }-${new Date().getFullYear()}`
   );
   const componentRef = useRef();
@@ -103,7 +102,7 @@ export default function NewBook() {
             <div style={{ marginLeft: "15px" }}>ر. المهندسين الاقدم</div>
             <div style={{ marginLeft: "20px" }}>جابر عبوش عجيل</div>
             <div style={{ marginBottom: "70px" }}>مدير بلدية السماوة/وكالة</div>
-            <div style={{ marginLeft: "40px" }}> مهندس تقنى</div>
+            <div style={{ marginLeft: "25px" }}>: مهندس تقنى</div>
             <div style={{ marginLeft: "15px" }}> صالح مرتضى صالح</div>
             <div style={{ marginLeft: "5px" }}>م. وحدة نظم المعلومات</div>
             <div style={{ marginLeft: "30px" }}> {date} </div>
@@ -122,6 +121,9 @@ export default function NewBook() {
             </div>
             <div style={{ marginLeft: "10px" }}>
               .<b>الاضبارة</b> <b>-*</b>
+            </div>
+            <div style={{ marginLeft: "10px" }}>
+              <b>baladiya.samawa@gmail.com</b> <b>-*</b>
             </div>
           </div>
         </div>

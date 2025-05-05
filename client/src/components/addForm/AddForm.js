@@ -129,6 +129,14 @@ export const AddForm = (props) => {
             }}
             placeholder=" اسم الزوج/الزوجه"
           ></input>
+          <label> اسم الزوج/الزوجه</label>
+          <input
+            type="text"
+            onChange={(e) => {
+              setData({ ...data, husbandName2: e.target.value });
+            }}
+            placeholder=" اسم الزوج/الزوجه"
+          ></input>
           <label> مسقط الراس</label>
           <input
             type="text"
@@ -174,6 +182,7 @@ export const AddForm = (props) => {
             }}
             placeholder="تاريخ التخصيص"
           ></input>
+
           <label> الشريحة</label>
           <select
             type="text"
@@ -195,6 +204,8 @@ export const AddForm = (props) => {
               );
             })}
           </select>
+
+          <label> رقم الشريحه</label>
           <input
             type="text"
             onChange={(e) => {
@@ -203,6 +214,7 @@ export const AddForm = (props) => {
             placeholder="الشريحه"
             style={{ display: nw ? "block" : "none" }}
           ></input>
+
           <label> رقم المقاطعة</label>
           <input
             type="text"
@@ -219,15 +231,8 @@ export const AddForm = (props) => {
             }}
             placeholder="رقم القطعه"
           ></input>
-          {/* <label> رقم الصحيفة</label>
-          <input
-            type="text"
-            onChange={(e) => {
-              setData({ ...data, paperNumber: e.target.value });
-            }}
-            placeholder="رقم الصحيفه"
-          ></input> */}
 
+          <label>دائره الاحوال </label>
           <input
             type="text"
             onChange={(e) => {
@@ -235,6 +240,15 @@ export const AddForm = (props) => {
             }}
             placeholder="دائره الاحوال"
             style={{ display: nw2 ? "block" : "none" }}
+          ></input>
+
+          <label> رقم المحضر</label>
+          <input
+            type="text"
+            onChange={(e) => {
+              setData({ ...data, paperNumber: e.target.value });
+            }}
+            placeholder="رقم المحضر"
           ></input>
 
           <label> المساحة </label>

@@ -16,8 +16,7 @@ export const Print = (props) => {
   const [user, setUser] = useState("");
   const [number, setNumber] = useState(0);
   const [date, setDate] = useState(
-    `${new Date().getDate()}-${
-      new Date().getMonth() + 1
+    `${new Date().getDate()}-${new Date().getMonth() + 1
     }-${new Date().getFullYear()}`
   );
   const [rf, setRef] = useState(false);
@@ -157,7 +156,7 @@ export const Print = (props) => {
             </div>
             <div>
               {/* public/1698956106609-image-525acf9e29b89e9cdea769d5d8c0ef1b8720823e.png */}
-            <img src="../../1698956106609-image-525acf9e29b89e9cdea769d5d8c0ef1b8720823e.png" alt="logo" />
+              <img src="../../1698956106609-image-525acf9e29b89e9cdea769d5d8c0ef1b8720823e.png" alt="logo" />
             </div>
             <div className={style.topW}>
               <div> مديرية بلدية السماوة</div>
@@ -230,6 +229,12 @@ export const Print = (props) => {
                   ? `تاريخ التخصيص / ${data.assignDate?.slice(0, 10)}`
                   : `/ تاريخ التخصيص`}
               </div>
+              <div>
+                {" "}
+                {data.paperNumber
+                  ? ` رقم المحضر : ${data.paperNumber}`
+                  : `: رقم المحضر`}
+              </div>
             </div>
             {/* <div className={style.def}>
               <div>
@@ -301,6 +306,11 @@ export const Print = (props) => {
               : `: اسم الزوج`}
           </div>
           <div>
+            {data.husbandName2
+              ? ` اسم الزوجة : ${data.husbandName2}`
+              : `: اسم الزوجة`}
+          </div>
+          <div>
             {" "}
             {data.motherName
               ? `اسم الام : ${data.motherName}`
@@ -329,11 +339,6 @@ export const Print = (props) => {
             {data.recordNumber
               ? ` رقم السجل : ${data.recordNumber}`
               : `: رقم السجل`}{" "}
-          </div>
-          <div>
-            {data.paperNumber
-              ? ` رقم الصحيفة : ${data.paperNumber}`
-              : `: رقم الصحيفة`}{" "}
           </div>
           <div>
             {data.classType ? ` الشريحة : ${data.classType}` : `: الشريحة`}{" "}

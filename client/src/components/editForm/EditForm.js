@@ -153,13 +153,21 @@ export const EditForm = () => {
             }}
             placeholder={mydata.motherName}
           ></input>
-          <label> اسم الزوج/الزوجه</label>
+          <label> اسم الزوج</label>
           <input
             type="text"
             onChange={(e) => {
               setData({ ...data, husbandName: e.target.value });
             }}
             placeholder={mydata.husbandName}
+          ></input>
+          <label> اسم الزوجة</label>
+          <input
+            type="text"
+            onChange={(e) => {
+              setData({ ...data, husbandName2: e.target.value });
+            }}
+            placeholder={mydata.husbandName2}
           ></input>
           <label> رقم السجل </label>
           <input
@@ -170,14 +178,15 @@ export const EditForm = () => {
             placeholder={mydata.recordNumber}
           ></input>
 
-          {/* <label> رقم الصحيفة</label>
+          <label> رقم المحضر</label>
           <input
             type="text"
             onChange={(e) => {
               setData({ ...data, paperNumber: e.target.value });
             }}
             placeholder={mydata.paperNumber}
-          ></input> */}
+          ></input>
+
           <label> دائرة الاحوال</label>
           <select
             type="text"

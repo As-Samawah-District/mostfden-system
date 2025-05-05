@@ -85,10 +85,14 @@ export default function Estifada() {
             className={style.notice}
             style={{ marginBottom: "150px", lineHeight: "40px" }}
           >
-            لدى الفحص والتدقيق في برنامج ادخال المستفيدين تبين استفادة السيد/ة (
-            {data.name}) ضمن الحدود الادارية لمديريتنا ونحن غير مسؤولين عن
+            لدى الفحص والتدقيق في برنامج المستفيدين تبين استفادة (
+            {data.name}) في القطعة المرقمة (
+            <b style={{ fontSize: "20px" }}>{data.qt3a}</b>
+            ) ضمن شريحة (
+            <b style={{ fontSize: "20px" }}>{data.shar7a}</b>
+            ) ضمن الحدود الادارية لمديريتنا ونحن غير مسؤولين عن
             استفادتهم في بلديات المثنى لفك ارتباطها من مديريتنا او حالة تمليك
-            اخرى لأنها من اختصاص دائرة التسجيل العقاري في المثنى مع التقدير
+            اخرى لانها من اختصاص دائرة التسجيل العقاري في المثنى مع التقدير
           </p>
           <div
             className={style.footer}
@@ -101,7 +105,7 @@ export default function Estifada() {
             <div style={{ marginLeft: "15px" }}>ر. المهندسين الاقدم</div>
             <div style={{ marginLeft: "20px" }}>جابر عبوش عجيل</div>
             <div style={{ marginBottom: "70px" }}>مدير بلدية السماوة/وكالة</div>
-            <div style={{ marginLeft: "40px" }}> مهندس تقنى</div>
+            <div style={{ marginLeft: "25px" }}>: مهندس تقنى</div>
             <div style={{ marginLeft: "15px" }}> صالح مرتضى صالح</div>
             <div style={{ marginLeft: "5px" }}>م. وحدة نظم المعلومات</div>
             <div style={{ marginLeft: "30px" }}> {date} </div>
@@ -120,6 +124,9 @@ export default function Estifada() {
             </div>
             <div style={{ marginLeft: "10px" }}>
               .<b>الاضبارة</b> <b>-*</b>
+            </div>
+            <div style={{ marginLeft: "10px" }}>
+              <b>baladiya.samawa@gmail.com</b> <b>-*</b>
             </div>
           </div>
         </div>
@@ -147,19 +154,6 @@ export default function Estifada() {
               setData({ ...data, to: e.target.value });
             }}
           ></input>
-          <label>اسم المستفيد</label>
-          <input
-            type="text"
-            style={{
-              padding: "8px",
-              borderRadius: "5px",
-              fontSize: "18px",
-              textAlign: "right",
-            }}
-            onChange={(e) => {
-              setData({ ...data, name: e.target.value });
-            }}
-          ></input>
           <label>رقم الكتاب</label>
           <input
             type="text"
@@ -181,10 +175,49 @@ export default function Estifada() {
               borderRadius: "5px",
               fontSize: "18px",
               textAlign: "right",
-              marginBottom: "15PX",
             }}
             onChange={(e) => {
               setData({ ...data, date: e.target.value });
+            }}
+          ></input>
+          <label>اسم المستفيد</label>
+          <input
+            type="text"
+            style={{
+              padding: "8px",
+              borderRadius: "5px",
+              fontSize: "18px",
+              textAlign: "right",
+            }}
+            onChange={(e) => {
+              setData({ ...data, name: e.target.value });
+            }}
+          ></input>
+          <label>القطعة</label>
+          <input
+            type="text"
+            style={{
+              padding: "8px",
+              borderRadius: "5px",
+              fontSize: "18px",
+              textAlign: "right",
+            }}
+            onChange={(e) => {
+              setData({ ...data, qt3a: e.target.value });
+            }}
+          ></input>
+          <label>الشريحة</label>
+          <input
+            type="text"
+            style={{
+              padding: "8px",
+              borderRadius: "5px",
+              fontSize: "18px",
+              textAlign: "right",
+              marginBottom: "15px",
+            }}
+            onChange={(e) => {
+              setData({ ...data, shar7a: e.target.value });
             }}
           ></input>
           <button onClick={handelPrint} style={{ fontWeight: "bold" }}>
