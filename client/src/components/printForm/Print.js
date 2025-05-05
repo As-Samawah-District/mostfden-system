@@ -221,10 +221,6 @@ export const Print = (props) => {
             <div className={style.def}>
               <div>
                 {" "}
-                {data.classType ? `الشريحه / ${data.classType}` : `/ الشريحه`}
-              </div>
-              <div>
-                {" "}
                 {data.assignDate
                   ? `تاريخ التخصيص / ${data.assignDate?.slice(0, 10)}`
                   : `/ تاريخ التخصيص`}
@@ -248,8 +244,15 @@ export const Print = (props) => {
                 موقف مقدم الطلب / {data.beneficiary ? "مستفيد" : "غير مستفيد"}
               </div>
             </div> */}
-            <div style={{ padding: "10px", borderLeft: ".5px solid black" }}>
-              موقف مقدم الطلب / {data.beneficiary ? "مستفيد" : "غير مستفيد"}
+            <div className={style.def}>
+
+              <div>
+                {" "}
+                {data.classType ? `الشريحه / ${data.classType}` : `/ الشريحه`}
+              </div>
+              <div >
+                موقف مقدم الطلب / {data.beneficiary ? "مستفيد" : "غير مستفيد"}
+              </div>
             </div>
 
             <div
