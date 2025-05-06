@@ -103,9 +103,9 @@ export default function Estifada() {
             }}
           >
             <div style={{ marginLeft: "15px" }}>ر. المهندسين الاقدم</div>
-            <div style={{ marginLeft: "20px" }}>جابر عبوش عجيل</div>
+            <div style={{ marginLeft: "20px" }}>جابر عبدوش عجيل</div>
             <div style={{ marginBottom: "70px" }}>مدير بلدية السماوة/وكالة</div>
-            <div style={{ marginLeft: "25px" }}>: مهندس تقنى</div>
+            <div style={{ marginLeft: "25px" }}>: مهندس تقني</div>
             <div style={{ marginLeft: "15px" }}> صالح مرتضى صالح</div>
             <div style={{ marginLeft: "5px" }}>م. وحدة نظم المعلومات</div>
             <div style={{ marginLeft: "30px" }}> {date} </div>

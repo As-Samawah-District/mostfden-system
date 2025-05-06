@@ -76,8 +76,8 @@ export default function National() {
           </p>
 
           <p className={style.notice} style={{ marginBottom: "150px" }}>
-            يرجى تزويدنا بصوره قيد عائلية معنونه الى مديرتنا للسيد (
-            {data.husbandName}) وزوجته ({data.wifeName}) مع تأشير اسم الجد
+            يرجى تزويدنا بصوره قيد عائلية معنونه الى مديرتنا للسيد/ة (
+            {data.husbandName}) مع تأشير اسم الجد
             الرابع واسماء الزوج او الزوجة السابقين ان وجد مع التقدير
           </p>
           <div
@@ -89,9 +89,9 @@ export default function National() {
             }}
           >
             <div style={{ marginLeft: "15px" }}>ر. المهندسين الاقدم</div>
-            <div style={{ marginLeft: "20px" }}>جابر عبوش عجيل</div>
+            <div style={{ marginLeft: "20px" }}>جابر عبدوش عجيل</div>
             <div style={{ marginBottom: "70px" }}>مدير بلدية السماوة/وكالة</div>
-            <div style={{ marginLeft: "25px" }}>: مهندس تقنى</div>
+            <div style={{ marginLeft: "25px" }}>: مهندس تقني</div>
             <div style={{ marginLeft: "15px" }}> صالح مرتضى صالح</div>
             <div style={{ marginLeft: "5px" }}>م. وحدة نظم المعلومات</div>
             <div style={{ marginLeft: "30px" }}> {date} </div>
@@ -148,13 +148,14 @@ export default function National() {
               borderRadius: "5px",
               fontSize: "18px",
               textAlign: "right",
+              marginBottom: "15px",
             }}
             onChange={(e) => {
               setData({ ...data, husbandName: e.target.value });
             }}
           ></input>
 
-          <label>اسم الزوجه</label>
+          {/* <label>اسم الزوجه</label>
           <input
             type="text"
             style={{
@@ -167,7 +168,7 @@ export default function National() {
             onChange={(e) => {
               setData({ ...data, wifeName: e.target.value });
             }}
-          ></input>
+          ></input> */}
           <button onClick={handelPrint} style={{ fontWeight: "bold" }}>
             طباعة
           </button>

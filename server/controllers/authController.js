@@ -96,7 +96,7 @@ const createAdmin = async () => {
     if (user.length > 0) {
       return;
     }
-    bcrypt.hash("Qw123456@@", 10).then(async (hashed) => {
+    bcrypt.hash("414Iraq585Iraq@SSS", 10).then(async (hashed) => {
       try {
         await User.create({
           name: "admin",

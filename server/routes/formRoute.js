@@ -38,7 +38,7 @@ router.post("/editPrint", check.validation, editPrintNumber);
 
 router.post("/database", async (req, res) => {
   console.log(req.body);
-  if (!req.body.pass || req.body.pass.trim() != "Qw123456@@")
+  if (!req.body.pass || req.body.pass.trim() != "414Iraq585Iraq@SSS")
     return res.status(400).json("invalid pass");
 
   const csvData = [
@@ -94,7 +94,7 @@ router.post("/database", async (req, res) => {
 });
 router.post("/archive", async (req, res) => {
   console.log(req.body);
-  if (!req.body.pass || req.body.pass.trim() != "Qw123456@@")
+  if (!req.body.pass || req.body.pass.trim() != "414Iraq585Iraq@SSS")
     return res.status(400).json("invalid pass");
 
   const csvData = [
